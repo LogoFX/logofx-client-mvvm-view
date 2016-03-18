@@ -7,6 +7,9 @@ using System.Threading;
 
 namespace LogoFX.Client.Mvvm.View.Localization
 {
+    /// <summary>
+    /// Enables loading assemblies collection.
+    /// </summary>
     public sealed class AssemblyLoaderService
     {
         #region Fields
@@ -28,6 +31,11 @@ namespace LogoFX.Client.Mvvm.View.Localization
 
         #region Public Methods
 
+        /// <summary>
+        /// Generates the local assembly collection from the provided assembly name.
+        /// </summary>
+        /// <param name="baseAssemblyFullName">Full name of the base assembly.</param>
+        /// <returns></returns>
         public IEnumerable<AssemblyName> GenerateLocalAssemblyCollection(string baseAssemblyFullName)
         {
             if (!File.Exists(baseAssemblyFullName))
@@ -308,6 +316,11 @@ namespace LogoFX.Client.Mvvm.View.Localization
             return result;
         }
 
+        /// <summary>
+        /// Starts loading resource sets asynchronously.
+        /// </summary>
+        /// <param name="assemblyName">Name of the assembly.</param>
+        /// <param name="callback">The callback.</param>
         public void StartLoadResourceSets(AssemblyName assemblyName, LoadResourceSetsHandler callback)
         {
             ThreadPool.QueueUserWorkItem(LoadResourceSetsAsync, new object[]

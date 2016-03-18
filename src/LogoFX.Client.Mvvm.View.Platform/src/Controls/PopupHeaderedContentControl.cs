@@ -2,37 +2,52 @@
 using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
-using LogoFX.Client.Mvvm.View.Controls;
 
 namespace LogoFX.Client.Mvvm.View.Controls
 {
+    /// <summary>
+    /// Content control with header which is displayed in popup.
+    /// </summary>
+    /// <seealso cref="HeaderedContentControl" />
+    /// <seealso cref="IUpdateVisualState" />
     [TemplatePart(Name = "Popup",Type = typeof(Popup))]
     [TemplatePart(Name = "ClickHandler", Type = typeof(FrameworkElement))]
     public class PopupHeaderedContentControl : HeaderedContentControl, IUpdateVisualState
     {
         private PopupHelper InternalPopup = null;
 
-
+        /// <summary>
+        /// Occurs when drop down is opening.
+        /// </summary>
         public event RoutedPropertyChangingEventHandler<bool> DropDownOpening;
 
- 
+        /// <summary>
+        /// Occurs when drop down is opened.
+        /// </summary>
         public event RoutedPropertyChangedEventHandler<bool> DropDownOpened;
 
-
+        /// <summary>
+        /// Occurs when drop down is closing.
+        /// </summary>
         public event RoutedPropertyChangingEventHandler<bool> DropDownClosing;
 
- 
+        /// <summary>
+        /// Occurs when drop down is closed.
+        /// </summary>
         public event RoutedPropertyChangedEventHandler<bool> DropDownClosed;
 
-#if !SILVERLIGHT
+#if NET45
         static PopupHeaderedContentControl()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(PopupHeaderedContentControl), new FrameworkPropertyMetadata(typeof(PopupHeaderedContentControl)));
         }
-#endif
+#endif        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PopupHeaderedContentControl"/> class.
+        /// </summary>
         public PopupHeaderedContentControl()
         {
-#if SILVERLIGHT
+#if WINDOWS_UWP || NETFXCORE
             this.DefaultStyleKey = typeof(PopupHeaderedContentControl);
 #endif
             Interaction = new InteractionHelper(this);
@@ -41,12 +56,21 @@ namespace LogoFX.Client.Mvvm.View.Controls
 
         #region PopupHorizontalOffset dependency property
 
+        /// <summary>
+        /// Gets or sets the popup horizontal offset.
+        /// </summary>
+        /// <value>
+        /// The popup horizontal offset.
+        /// </value>
         public double PopupHorizontalOffset
         {
             get { return (double)GetValue(PopupHorizontalOffsetProperty); }
             set { SetValue(PopupHorizontalOffsetProperty, value); }
         }
 
+        /// <summary>
+        /// The popup horizontal offset property
+        /// </summary>
         public static readonly DependencyProperty PopupHorizontalOffsetProperty =
             DependencyProperty.Register("PopupHorizontalOffset", typeof (double), typeof (PopupHeaderedContentControl), new PropertyMetadata(default(double), OnPopupOffsetChanged));
 
@@ -59,12 +83,21 @@ namespace LogoFX.Client.Mvvm.View.Controls
 
         #region PopupVerticalOffset dependency property
 
+        /// <summary>
+        /// Gets or sets the popup vertical offset.
+        /// </summary>
+        /// <value>
+        /// The popup vertical offset.
+        /// </value>
         public double PopupVerticalOffset
         {
             get { return (double)GetValue(PopupVerticalOffsetProperty); }
             set { SetValue(PopupVerticalOffsetProperty, value); }
         }
 
+        /// <summary>
+        /// The popup vertical offset property
+        /// </summary>
         public static readonly DependencyProperty PopupVerticalOffsetProperty =
             DependencyProperty.Register("PopupVerticalOffset", typeof (double), typeof (PopupHeaderedContentControl), new PropertyMetadata(default(double), OnPopupVerticalOffsetChanged));
 
@@ -77,12 +110,21 @@ namespace LogoFX.Client.Mvvm.View.Controls
 
         #region PopupPlacement dependency property
 
+        /// <summary>
+        /// Gets or sets the popup placement.
+        /// </summary>
+        /// <value>
+        /// The popup placement.
+        /// </value>
         public PopupPlacement PopupPlacement
         {
             get { return (PopupPlacement)GetValue(PopupPlacementProperty); }
             set { SetValue(PopupPlacementProperty, value); }
         }
 
+        /// <summary>
+        /// The popup placement property
+        /// </summary>
         public static readonly DependencyProperty PopupPlacementProperty =
             DependencyProperty.Register("PopupPlacement", typeof (PopupPlacement), typeof (PopupHeaderedContentControl), new PropertyMetadata(default(PopupPlacement), OnPopupPlacementChanged));
 
@@ -95,12 +137,21 @@ namespace LogoFX.Client.Mvvm.View.Controls
 
         #region IsPopupOpen dependency property
 
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is popup open.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if this instance is popup open; otherwise, <c>false</c>.
+        /// </value>
         public bool IsPopupOpen
         {
             get { return (bool)GetValue(IsPopupOpenProperty); }
             set { SetValue(IsPopupOpenProperty, value); }
         }
 
+        /// <summary>
+        /// The is popup open property
+        /// </summary>
         public static readonly DependencyProperty IsPopupOpenProperty =
             DependencyProperty.Register("IsPopupOpen", typeof (bool), typeof (PopupHeaderedContentControl), new PropertyMetadata(default(bool), OnIsPopupOpenChanged));
 
@@ -141,6 +192,9 @@ namespace LogoFX.Client.Mvvm.View.Controls
 
         #endregion
 
+        /// <summary>
+        /// When overridden in a derived class, is invoked whenever application code or internal processes call <see cref="M:System.Windows.FrameworkElement.ApplyTemplate"/>.
+        /// </summary>
         public override void OnApplyTemplate()
         {
             if (InternalPopup != null)
@@ -193,7 +247,6 @@ namespace LogoFX.Client.Mvvm.View.Controls
 
         }
 
-
         void ClickHandler_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if(!IsPopupOpen)
@@ -235,7 +288,10 @@ namespace LogoFX.Client.Mvvm.View.Controls
             OnDropDownOpened(new RoutedPropertyChangedEventArgs<bool>(oldValue, newValue));
         }
 
-
+        /// <summary>
+        /// Raises the <see cref="DropDownOpening" /> event.
+        /// </summary>
+        /// <param name="e">The <see cref="bool"/> instance containing the event data.</param>
         protected virtual void OnDropDownOpening(RoutedPropertyChangingEventArgs<bool> e)
         {
             RoutedPropertyChangingEventHandler<bool> handler = DropDownOpening;
@@ -245,6 +301,10 @@ namespace LogoFX.Client.Mvvm.View.Controls
             }
         }
 
+        /// <summary>
+        /// Raises the <see cref="DropDownOpened"/> event.
+        /// </summary>
+        /// <param name="e"></param>
         protected virtual void OnDropDownOpened(RoutedPropertyChangedEventArgs<bool> e)
         {
             RoutedPropertyChangedEventHandler<bool> handler = DropDownOpened;
@@ -254,6 +314,10 @@ namespace LogoFX.Client.Mvvm.View.Controls
             }
         }
 
+        /// <summary>
+        /// Raises the <see cref="DropDownClosing" /> event.
+        /// </summary>
+        /// <param name="e">The <see cref="bool"/> instance containing the event data.</param>
         protected virtual void OnDropDownClosing(RoutedPropertyChangingEventArgs<bool> e)
         {
             RoutedPropertyChangingEventHandler<bool> handler = DropDownClosing;
@@ -263,6 +327,10 @@ namespace LogoFX.Client.Mvvm.View.Controls
             }
         }
 
+        /// <summary>
+        /// Raises the <see cref="DropDownClosed" /> event.
+        /// </summary>
+        /// <param name="e">The <see cref="bool"/> instance containing the event data.</param>
         protected virtual void OnDropDownClosed(RoutedPropertyChangedEventArgs<bool> e)
         {
             RoutedPropertyChangedEventHandler<bool> handler = DropDownClosed;
@@ -286,7 +354,6 @@ namespace LogoFX.Client.Mvvm.View.Controls
                 OnDropDownClosed(new RoutedPropertyChangedEventArgs<bool>(true, false));
             }
         }
-
 
         internal virtual void UpdateVisualState(bool useTransitions)
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if NET45
+using System;
 using LogoFX.Client.Core;
 using LogoFX.Client.Mvvm.View.Localization;
 
@@ -111,3 +112,4 @@ namespace LogoFX.Client.Mvvm.View.MarkupExtensions
         #endregion
     }
 }
+#endif

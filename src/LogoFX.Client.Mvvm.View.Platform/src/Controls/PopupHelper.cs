@@ -15,7 +15,7 @@ namespace LogoFX.Client.Mvvm.View.Controls
     /// </summary>
     internal class PopupHelper
     {
-#if SILVERLIGHT
+#if WINDOWS_UWP || NETFX_CORE
         /// <summary>
         /// A value indicating whether Silverlight has loaded at least once, 
         /// so that the wrapping canvas is not recreated.
@@ -35,7 +35,7 @@ namespace LogoFX.Client.Mvvm.View.Controls
         /// </summary>
         private Control Parent { get; set; }
 
-#if SILVERLIGHT
+#if WINDOWS_UWP || NETFX_CORE
         /// <summary>
         /// Gets or sets the expansive area outside of the popup.
         /// </summary>
@@ -119,7 +119,7 @@ namespace LogoFX.Client.Mvvm.View.Controls
         {
             if (Popup == null
                 || PopupChild == null || Application.Current == null
-#if SILVERLIGHT
+#if WINDOWS_UWP || NETFX_CORE
                 || OutsidePopupCanvas == null || Application.Current.Host == null || Application.Current.Host.Content == null
 #endif
                 || false)
@@ -127,7 +127,7 @@ namespace LogoFX.Client.Mvvm.View.Controls
                 return;
             }
 
-#if SILVERLIGHT
+#if WINDOWS_UWP || NETFX_CORE
             Content hostContent = Application.Current.Host.Content;
             double rootWidth = hostContent.ActualWidth;
             double rootHeight = hostContent.ActualHeight;
@@ -163,7 +163,7 @@ namespace LogoFX.Client.Mvvm.View.Controls
             double rootOffsetX = 0;
             double rootOffsetY = 0;
 
-#if SILVERLIGHT
+#if WINDOWS_UWP || NETFX_CORE
             // Getting the transform will throw if the popup is no longer in 
             // the visual tree.  This can happen if you first open the popup 
             // and then click on something else on the page that removes it 
@@ -253,7 +253,7 @@ namespace LogoFX.Client.Mvvm.View.Controls
             Popup.HorizontalOffset = 0;
             Popup.VerticalOffset = 0;
 
-#if SILVERLIGHT
+#if WINDOWS_UWP || NETFX_CORE
             OutsidePopupCanvas.Width = rootWidth;
             OutsidePopupCanvas.Height = rootHeight;
 
@@ -365,12 +365,12 @@ namespace LogoFX.Client.Mvvm.View.Controls
                 // For Silverlight only, we just create the popup child with 
                 // canvas a single time.
                 if (PopupChild != null
-#if SILVERLIGHT
+#if WINDOWS_UWP || NETFX_CORE
                     && !_hasControlLoaded
 #endif
                     )
                 {
-#if SILVERLIGHT
+#if WINDOWS_UWP || NETFX_CORE
                     _hasControlLoaded = true;
 
                     // Replace the poup child with a canvas

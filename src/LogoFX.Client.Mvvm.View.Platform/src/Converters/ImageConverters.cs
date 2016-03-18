@@ -38,15 +38,32 @@ namespace LogoFX.Client.Mvvm.View.Converters
         }
 
     }
-    public  class ObjectToImageConverter : IValueConverter
+
+    /// <summary>
+    /// Retrieves image by its name
+    /// </summary>
+    /// <seealso cref="IValueConverter" />
+    public class ObjectToImageConverter : IValueConverter
     {
         private string _suffix;
+        /// <summary>
+        /// Gets or sets the suffix.
+        /// </summary>
+        /// <value>
+        /// The suffix.
+        /// </value>
         public string Suffix
         {
             get { return _suffix; }
             set { _suffix = value; }
         }
 
+        /// <summary>
+        /// Gets or sets the extension.
+        /// </summary>
+        /// <value>
+        /// The extension.
+        /// </value>
         public string Extension
         {
             get { return _ext; }
@@ -56,19 +73,40 @@ namespace LogoFX.Client.Mvvm.View.Converters
         private string _ext = ".png";
         private string _default;
 
+        /// <summary>
+        /// Gets or sets the folder.
+        /// </summary>
+        /// <value>
+        /// The folder.
+        /// </value>
         public string Folder
         {
             get { return _folder; }
             set { _folder = value; }
         }
 
+        /// <summary>
+        /// Gets or sets the default.
+        /// </summary>
+        /// <value>
+        /// The default.
+        /// </value>
         public string Default
         {
             get { return _default; }
             set { _default = value; }
         }
 
-        #region IValueConverter Members
+        /// <summary>
+        /// Converts a value.
+        /// </summary>
+        /// <param name="value">The value produced by the binding source.</param>
+        /// <param name="targetType">The type of the binding target property.</param>
+        /// <param name="parameter">The converter parameter to use.</param>
+        /// <param name="culture">The culture to use in the converter.</param>
+        /// <returns>
+        /// A converted value. If the method returns null, the valid null value is used.
+        /// </returns>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             ImageGet.MakeRet mk = ImageGet.GetDelegateOnType(targetType);
@@ -94,11 +132,20 @@ namespace LogoFX.Client.Mvvm.View.Converters
             return !string.IsNullOrWhiteSpace(Default)?mk(Default): DependencyProperty.UnsetValue;
         }
 
+        /// <summary>
+        /// Converts a value.
+        /// </summary>
+        /// <param name="value">The value that is produced by the binding target.</param>
+        /// <param name="targetType">The type to convert to.</param>
+        /// <param name="parameter">The converter parameter to use.</param>
+        /// <param name="culture">The culture to use in the converter.</param>
+        /// <returns>
+        /// A converted value. If the method returns null, the valid null value is used.
+        /// </returns>
+        /// <exception cref="System.Exception">The method or operation is not implemented.</exception>
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new Exception("The method or operation is not implemented.");
         }
-
-        #endregion
     }
 }

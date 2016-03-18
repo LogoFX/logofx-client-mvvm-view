@@ -3,6 +3,9 @@ using System.Reflection;
 
 namespace LogoFX.Client.Mvvm.View.Localization
 {
+    /// <summary>
+    /// Enables saving colletion of assemblies for future retrieval.
+    /// </summary>
     public sealed class AssemblySaverService
     {
         #region Fields
@@ -24,6 +27,10 @@ namespace LogoFX.Client.Mvvm.View.Localization
 
         #region Public Methods
 
+        /// <summary>
+        /// Saves the specified local assembly collection.
+        /// </summary>
+        /// <param name="localAssemblyCollection">The local assembly collection.</param>
         public void Save(LocalAssemblyCollection localAssemblyCollection)
         {
             foreach (var pair in localAssemblyCollection)
@@ -36,6 +43,12 @@ namespace LogoFX.Client.Mvvm.View.Localization
 
         #region Public Properties
 
+        /// <summary>
+        /// Gets the instance of <see cref="AssemblySaverService"/>.
+        /// </summary>
+        /// <value>
+        /// The instance.
+        /// </value>
         public static AssemblySaverService Instance
         {
             get

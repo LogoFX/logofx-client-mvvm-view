@@ -51,12 +51,25 @@ namespace LogoFX.Client.Mvvm.View.Annotations
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
     public sealed class NotifyPropertyChangedInvocatorAttribute : Attribute
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NotifyPropertyChangedInvocatorAttribute"/> class.
+        /// </summary>
         public NotifyPropertyChangedInvocatorAttribute() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NotifyPropertyChangedInvocatorAttribute"/> class.
+        /// </summary>
+        /// <param name="parameterName">Name of the parameter.</param>
         public NotifyPropertyChangedInvocatorAttribute(string parameterName)
         {
             ParameterName = parameterName;
         }
 
+        /// <summary>
+        /// Gets the name of the parameter.
+        /// </summary>
+        /// <value>
+        /// The name of the parameter.
+        /// </value>
         [UsedImplicitly]
         public string ParameterName { get; private set; }
     }
@@ -106,18 +119,39 @@ namespace LogoFX.Client.Mvvm.View.Annotations
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = true, Inherited = true)]
     public sealed class ContractAnnotationAttribute : Attribute
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ContractAnnotationAttribute"/> class.
+        /// </summary>
+        /// <param name="fdt">The FDT.</param>
         public ContractAnnotationAttribute([NotNull] string fdt)
             : this(fdt, false)
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ContractAnnotationAttribute"/> class.
+        /// </summary>
+        /// <param name="fdt">The FDT.</param>
+        /// <param name="forceFullStates">if set to <c>true</c> [force full states].</param>
         public ContractAnnotationAttribute([NotNull] string fdt, bool forceFullStates)
         {
             FDT = fdt;
             ForceFullStates = forceFullStates;
         }
 
+        /// <summary>
+        /// </summary>
+        /// <value>
+        /// The FDT.
+        /// </value>
         public string FDT { get; private set; }
+
+        /// <summary>
+        /// Gets a value indicating whether [force full states].
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [force full states]; otherwise, <c>false</c>.
+        /// </value>
         public bool ForceFullStates { get; private set; }
     }                                        
 }

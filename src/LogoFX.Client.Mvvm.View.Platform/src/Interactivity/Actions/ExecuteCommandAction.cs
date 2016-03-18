@@ -19,25 +19,42 @@ namespace LogoFX.Client.Mvvm.View.Interactivity.Actions
         private const double INTERACTIVITY_ENABLED = 1d;
         private const double INTERACTIVITY_DISABLED = 0.5d;
 
+        /// <summary>
+        /// The command property
+        /// </summary>
         public static readonly DependencyProperty CommandProperty =
             DependencyProperty.Register("Command", typeof(ICommand), typeof(ExecuteCommandAction),
             new PropertyMetadata(null, new PropertyChangedCallback(OnCommandChanged)));
 
+        /// <summary>
+        /// The parameter property
+        /// </summary>
         public static readonly DependencyProperty ParameterProperty =
             DependencyProperty.Register("Parameter", typeof(object), typeof(ExecuteCommandAction),
             new PropertyMetadata(null, new PropertyChangedCallback(OnParameterChanged)));
 
+        /// <summary>
+        /// The trigger parameter converter property
+        /// </summary>
         public static readonly DependencyProperty TriggerParameterConverterProperty =
             DependencyProperty.Register("TriggerParameterConverter", typeof(IValueConverter), typeof(ExecuteCommandAction),
             new PropertyMetadata(null));
 
+        /// <summary>
+        /// Gets or sets a value indicating whether to use trigger parameter.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if trigger parameter is used; otherwise, <c>false</c>.
+        /// </value>
         public bool UseTriggerParameter
         {
             get { return (bool)GetValue(UseTriggerParameterProperty); }
             set { SetValue(UseTriggerParameterProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for UseTriggerParameter.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// The use trigger parameter property
+        /// </summary>
         public static readonly DependencyProperty UseTriggerParameterProperty =
             DependencyProperty.Register("UseTriggerParameter", typeof(bool), typeof(ExecuteCommandAction), new PropertyMetadata(false));
 
@@ -46,7 +63,9 @@ namespace LogoFX.Client.Mvvm.View.Interactivity.Actions
 
         #region Properties
 
-
+        /// <summary>
+        /// Gets or sets the command.
+        /// </summary>
 #if (!WP7)
         [CustomPropertyValueEditor(CustomPropertyValueEditor.PropertyBinding)]
 #endif
@@ -57,6 +76,9 @@ namespace LogoFX.Client.Mvvm.View.Interactivity.Actions
         }
 
 
+        /// <summary>
+        /// Gets or sets the parameter.
+        /// </summary>
 #if WP7
         [TypeConverter(typeof(nRoute.Components.TypeConverters.ConvertFromStringConverter))]
 #endif
@@ -70,6 +92,9 @@ namespace LogoFX.Client.Mvvm.View.Interactivity.Actions
         }
 
 
+        /// <summary>
+        /// Gets or sets the trigger parameter converter.
+        /// </summary>
 #if (!WP7)
         [CustomPropertyValueEditor(CustomPropertyValueEditor.PropertyBinding)]
 #endif

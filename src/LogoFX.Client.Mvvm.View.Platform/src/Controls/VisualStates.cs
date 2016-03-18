@@ -1,15 +1,21 @@
 ﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+#pragma warning disable 1591 
+//-- Self-explanatory state names
 
 namespace LogoFX.Client.Mvvm.View.Controls
 {
+    
     public static class VisualStates
     {
-        // Fields
+        
         public const string DATAGRIDROW_stateAlternate = "Normal_AlternatingRow";
+        
         public const string DATAGRIDROW_stateMouseOver = "MouseOver";
+        
         public const string DATAGRIDROW_stateMouseOverEditing = "MouseOver_Unfocused_Editing";
+        
         public const string DATAGRIDROW_stateMouseOverEditingFocused = "MouseOver_Editing";
         public const string DATAGRIDROW_stateMouseOverSelected = "MouseOver_Unfocused_Selected";
         public const string DATAGRIDROW_stateMouseOverSelectedFocused = "MouseOver_Selected";

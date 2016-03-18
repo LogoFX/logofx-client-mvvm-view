@@ -1,22 +1,38 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+#if NET45
 using System.Windows;
-#if !WinRT
 using System.Windows.Media;
-#else
+#endif
+#if WINDOWS_UWP || NETFX_CORE
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
 #endif
 
 namespace LogoFX.Client.Mvvm.View.Util
 {
+    /// <summary>
+    /// Logical and Visua tree helper.
+    /// </summary>
     public static class TreeHelper
     {
+        /// <summary>
+        /// Gets the visual descendant of the specified type.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="d">The d.</param>
+        /// <returns></returns>
         public static T GetVisualDescendant<T>(this DependencyObject d)
         {
             return GetVisualDescendants<T>(d).FirstOrDefault();
         }
 
+        /// <summary>
+        /// Gets the visual descendants of the specified type.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="d">The d.</param>
+        /// <returns></returns>
         public static IEnumerable<T> GetVisualDescendants<T>(this DependencyObject d)
         {
             for (int n = 0; n < VisualTreeHelper.GetChildrenCount(d); n++)
@@ -35,6 +51,13 @@ namespace LogoFX.Client.Mvvm.View.Util
             }
         }
 
+        /// <summary>
+        /// Finds the visual ancestor of the specified type.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj">The object.</param>
+        /// <param name="includeThis">if set to <c>true</c> [include this].</param>
+        /// <returns></returns>
         public static T FindVisualAncestor<T>(this DependencyObject obj, bool includeThis) where T : DependencyObject
         {
             if (!includeThis)
@@ -47,7 +70,14 @@ namespace LogoFX.Client.Mvvm.View.Util
 
             return obj as T;
         }
-#if !SILVERLIGHT && !WinRT
+#if NET45        
+        /// <summary>
+        /// Finds the logical ancestor of the specified type.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj">The object.</param>
+        /// <param name="includeThis">if set to <c>true</c> [include this].</param>
+        /// <returns></returns>
         public static T FindLogicalAncestor<T>(this DependencyObject obj, bool includeThis) where T : DependencyObject
         {
             if (!includeThis)

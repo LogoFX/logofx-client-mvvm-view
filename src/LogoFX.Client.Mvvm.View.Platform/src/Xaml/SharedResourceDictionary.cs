@@ -1,13 +1,14 @@
-﻿#if WinRT
+﻿#if WINDOWS_UWP || NETFX_CORE
 using Windows.UI.Xaml;
+#endif
+#if NET45
+using System.Windows;
 #endif
 using System;
 using System.Collections.Generic;
-using System.Windows;
 
 namespace LogoFX.Client.Mvvm.View.Xaml
 {
-
     /// <summary>
     /// The shared resource dictionary is a specialized resource dictionary
     /// that loads it content only once. If a second instance with the same source

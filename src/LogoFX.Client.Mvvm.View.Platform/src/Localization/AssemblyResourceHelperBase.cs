@@ -4,6 +4,10 @@ using System.Reflection;
 
 namespace LogoFX.Client.Mvvm.View.Localization
 {
+    /// <summary>
+    /// Provides services of loading assemblies into an app domain.
+    /// </summary>
+    /// <seealso cref="System.MarshalByRefObject" />
     public abstract class AssemblyResourceHelperBase : MarshalByRefObject
     {
         #region Fields
@@ -26,6 +30,12 @@ namespace LogoFX.Client.Mvvm.View.Localization
 
         #region Public Methods
 
+        /// <summary>
+        /// Creates a new instance of the specified type in a new app domain.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="args">The arguments.</param>
+        /// <returns></returns>
         protected static T CreateInNewDomainInternal<T>(params object[] args)
             where T : AssemblyResourceHelperBase
         {
@@ -50,6 +60,10 @@ namespace LogoFX.Client.Mvvm.View.Localization
             return instance;
         }
 
+        /// <summary>
+        /// Destroys the domain.
+        /// </summary>
+        /// <param name="assemblyResourceLoader">The assembly resource loader.</param>
         public static void DestroyDomain(AssemblyResourceHelperBase assemblyResourceLoader)
         {
             AppDomain domain;

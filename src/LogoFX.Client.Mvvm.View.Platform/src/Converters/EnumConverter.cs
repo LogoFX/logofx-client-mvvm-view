@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using LogoFX.Client.Mvvm.View.Utils;
 #if WinRT
 using Windows.UI.Xaml.Data;
 using CultureInfo = System.String;
@@ -11,71 +10,37 @@ using System.Globalization;
 
 namespace LogoFX.Client.Mvvm.View.Converters
 {
-    static class EnumHelper
-    {
-        private static readonly IDictionary<Type, object[]> Cache = new Dictionary<Type, object[]>();
-
-        public static object GetBoxed(System.Enum s)
-        {
-            Type enumType = s.GetType();
-            object ret = GetValues(enumType).FirstOrDefault(ss => ss.ToString() == s.ToString());
-            return ret;
-        }
-        public static T[] GetValues<T>()
-        {
-            Type enumType = typeof(T);
-
-            if (enumType.IsEnum)
-            {
-                throw new ArgumentException("Type '" + enumType.Name + "' is not an enum");
-            }
-
-            object[] values;
-            if (!Cache.TryGetValue(enumType, out values))
-            {
-                values = (from field in enumType.GetFields()
-                          where field.IsLiteral
-                          select field.GetValue(enumType)).ToArray();
-                Cache[enumType] = values;
-            }
-            return values.Cast<T>().ToArray();
-        }
-
-        public static object[] GetValues(Type enumType)
-        {
-#if WinRT
-            if (!enumType.IsEnum())
-#else
-            if (!enumType.IsEnum)
-#endif
-            {
-                throw new ArgumentException("Type '" + enumType.Name + "' is not an enum");
-            }
-
-            object[] values;
-            if (!Cache.TryGetValue(enumType, out values))
-            {
-                values = (from field in enumType.GetFields()
-                          where field.IsLiteral
-                          select field.GetValue(enumType)).ToArray();
-                Cache[enumType] = values;
-            }
-            return values;
-        }
-
-    }
-
     /// <summary>
     /// Provides a way to fix weird behavior of selectors in Silverlight
     /// </summary>
     public class EnumConverter : IValueConverter
     {
+        /// <summary>
+        /// Converts a value.
+        /// </summary>
+        /// <param name="value">The value produced by the binding source.</param>
+        /// <param name="targetType">The type of the binding target property.</param>
+        /// <param name="parameter">The converter parameter to use.</param>
+        /// <param name="culture">The culture to use in the converter.</param>
+        /// <returns>
+        /// A converted value. If the method returns null, the valid null value is used.
+        /// </returns>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             object o = EnumHelper.GetBoxed(value as System.Enum);
             return o;
         }
 
+        /// <summary>
+        /// Converts a value.
+        /// </summary>
+        /// <param name="value">The value that is produced by the binding target.</param>
+        /// <param name="targetType">The type to convert to.</param>
+        /// <param name="parameter">The converter parameter to use.</param>
+        /// <param name="culture">The culture to use in the converter.</param>
+        /// <returns>
+        /// A converted value. If the method returns null, the valid null value is used.
+        /// </returns>
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             return value ?? EnumHelper.GetValues(targetType)[0];
@@ -87,6 +52,16 @@ namespace LogoFX.Client.Mvvm.View.Converters
     /// </summary>
     public class EnumSourceConverter : IValueConverter
     {
+        /// <summary>
+        /// Converts a value.
+        /// </summary>
+        /// <param name="value">The value produced by the binding source.</param>
+        /// <param name="targetType">The type of the binding target property.</param>
+        /// <param name="parameter">The converter parameter to use.</param>
+        /// <param name="culture">The culture to use in the converter.</param>
+        /// <returns>
+        /// A converted value. If the method returns null, the valid null value is used.
+        /// </returns>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value == null)
@@ -95,6 +70,16 @@ namespace LogoFX.Client.Mvvm.View.Converters
                 return EnumHelper.GetValues(value.GetType());
         }
 
+        /// <summary>
+        /// Converts a value.
+        /// </summary>
+        /// <param name="value">The value that is produced by the binding target.</param>
+        /// <param name="targetType">The type to convert to.</param>
+        /// <param name="parameter">The converter parameter to use.</param>
+        /// <param name="culture">The culture to use in the converter.</param>
+        /// <returns>
+        /// A converted value. If the method returns null, the valid null value is used.
+        /// </returns>
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             return value;

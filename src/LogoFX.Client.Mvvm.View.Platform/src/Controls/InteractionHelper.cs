@@ -4,7 +4,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using LogoFX.Client.Mvvm.View.Controls;
 
 namespace LogoFX.Client.Mvvm.View.Controls
 {
@@ -14,7 +13,7 @@ namespace LogoFX.Client.Mvvm.View.Controls
     /// etc., and also incorporates proper event semantics when the control is
     /// disabled.
     /// </summary>
-    internal sealed partial class InteractionHelper
+    internal sealed class InteractionHelper
     {
         // TODO: Consult with user experience experts to validate the double
         // click distance and time thresholds.

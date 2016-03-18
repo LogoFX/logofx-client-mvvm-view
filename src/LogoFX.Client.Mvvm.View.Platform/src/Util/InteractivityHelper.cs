@@ -27,7 +27,7 @@
  * 
  */
 using System.Collections.Generic;
-#if WinRT
+#if WINDOWS_UWP || NETFX_CORE
 using Windows.UI.Interactivity;
 using Windows.UI.Xaml;
 using TriggerBase = Windows.UI.Interactivity.TriggerBase;

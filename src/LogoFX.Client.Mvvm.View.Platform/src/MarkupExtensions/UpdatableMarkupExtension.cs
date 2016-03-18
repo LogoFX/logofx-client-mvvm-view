@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if NET45
+using System;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Markup;
@@ -62,3 +63,4 @@ namespace LogoFX.Client.Mvvm.View.MarkupExtensions
         protected abstract object ProvideValueInternal(IServiceProvider serviceProvider);
     }
 }
+#endif
