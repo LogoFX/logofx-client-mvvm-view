@@ -34,7 +34,7 @@ namespace LogoFX.Client.Mvvm.View.Utils
         {
             Type enumType = typeof(T);
 
-            if (enumType.IsEnum())
+            if (enumType.GetTypeInfo().IsEnum == false)
             {
                 throw new ArgumentException("Type '" + enumType.Name + "' is not an enum");
             }
@@ -58,8 +58,7 @@ namespace LogoFX.Client.Mvvm.View.Utils
         /// <exception cref="System.ArgumentException">Type ' + enumType.Name + ' is not an enum</exception>
         public static object[] GetValues(Type enumType)
         {
-
-            if (!enumType.IsEnum())
+            if (enumType.GetTypeInfo().IsEnum == false)
             {
                 throw new ArgumentException("Type '" + enumType.Name + "' is not an enum");
             }
