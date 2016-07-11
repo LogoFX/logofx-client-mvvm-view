@@ -159,12 +159,6 @@
     <Compile Include="..\src\Converters\TimeToDoubleConverter.cs">
       <Link>Converters\TimeToDoubleConverter.cs</Link>
     </Compile>
-    <Compile Include="..\src\Interactivity\Actions\ExecuteCommandAction.cs">
-      <Link>Interactivity\Actions\ExecuteCommandAction.cs</Link>
-    </Compile>
-    <Compile Include="..\src\Interactivity\Actions\ExecuteNamedCommandAction.cs">
-      <Link>Interactivity\Actions\ExecuteNamedCommandAction.cs</Link>
-    </Compile>
     <Compile Include="..\src\Interactivity\Actions\SetFocusAction.cs">
       <Link>Interactivity\Actions\SetFocusAction.cs</Link>
     </Compile>
