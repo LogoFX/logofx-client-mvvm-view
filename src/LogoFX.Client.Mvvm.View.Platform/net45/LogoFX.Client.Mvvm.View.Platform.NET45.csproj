@@ -231,13 +231,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\LogoFX.Client.Mvvm.View\LogoFX.Client.Mvvm.View.csproj">
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\LogoFX.Client.Mvvm.View\portable\LogoFX.Client.Mvvm.View.csproj">
       <Project>{54150f60-e0f6-4a3e-8d6a-931935ff92e9}</Project>
       <Name>LogoFX.Client.Mvvm.View</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
