@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.3</TargetFramework>
+    <AssemblyName>LogoFX.Client.Mvvm.View</AssemblyName>
+    <RootNamespace>LogoFX.Client.Mvvm.View</RootNamespace>
+    <Version>1.1.0</Version>
+    <AssemblyVersion>1.1.0</AssemblyVersion>
+    <FileVersion>1.1.0</FileVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\..\Bin\netstandard1.3\Release</OutputPath>
+    <DocumentationFile>..\..\Bin\netstandard1.3\Release\netstandard1.3\LogoFX.Client.Mvvm.View.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\src\Annotations\Annotations.cs" Link="Annotations\Annotations.cs" />
+    <Compile Include="..\src\Controls\IUpdateVisualState.cs" Link="Controls\IUpdateVisualState.cs" />
+    <Compile Include="..\src\Controls\PopupPlacement.cs" Link="Controls\PopupPlacement.cs" />
+    <Compile Include="..\src\Localization\CultureInfoCollection.cs" Link="Localization\CultureInfoCollection.cs" />
+    <Compile Include="..\src\Utils\EnumHelper.cs" Link="Utils\EnumHelper.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Annotations\" />
+    <Folder Include="Controls\" />
+    <Folder Include="Localization\" />
+    <Folder Include="Utils\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="10.4.0" />
+  </ItemGroup>
+
+</Project>
