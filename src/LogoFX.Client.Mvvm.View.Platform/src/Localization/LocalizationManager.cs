@@ -8,15 +8,20 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Threading;
+#if NET
 using System.Windows;
 using System.Windows.Threading;
+#endif
+#if NETFX_CORE || WINDOWS_UWP
+using Windows.UI.Xaml;
+#endif
 using LogoFX.Client.Mvvm.View.Annotations;
 
 namespace LogoFX.Client.Mvvm.View.Localization
 {
     public sealed class LocalizationManager : INotifyPropertyChanged
     {
-        #region Fields
+#region Fields
 
         private static readonly Lazy<LocalizationManager> s_instance =
             new Lazy<LocalizationManager>(() => new LocalizationManager());
@@ -36,9 +41,9 @@ namespace LogoFX.Client.Mvvm.View.Localization
 
         private const int MaxStringLength = 1024;
 
-        #endregion
+#endregion
 
-        #region Constructors
+#region Constructors
 
         private LocalizationManager()
         {
@@ -60,9 +65,9 @@ namespace LogoFX.Client.Mvvm.View.Localization
             CurrentCulture = Thread.CurrentThread.CurrentCulture;
         }
 
-        #endregion
+#endregion
 
-        #region Public Properties
+#region Public Properties
 
         public static LocalizationManager Instance
         {
@@ -114,9 +119,9 @@ namespace LogoFX.Client.Mvvm.View.Localization
             }
         }
 
-        #endregion
+#endregion
 
-        #region Public Methods
+#region Public Methods
 
         public string GetString(string key)
         {
@@ -163,9 +168,9 @@ namespace LogoFX.Client.Mvvm.View.Localization
             return String.Format(CultureInfo.CurrentCulture, format ?? String.Empty, args);
         }
 
-        #endregion
+#endregion
 
-        #region Private Members
+#region Private Members
 
         private void UpdateAssemblies()
         {
@@ -256,9 +261,9 @@ namespace LogoFX.Client.Mvvm.View.Localization
             }
         }
 
-        #endregion
+#endregion
 
-        #region INotifyPropertyChanged
+#region INotifyPropertyChanged
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -273,6 +278,6 @@ namespace LogoFX.Client.Mvvm.View.Localization
             }
         }
 
-        #endregion
+#endregion
     }
 }

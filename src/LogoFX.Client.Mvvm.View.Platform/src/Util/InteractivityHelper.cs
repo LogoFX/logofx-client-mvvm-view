@@ -111,7 +111,7 @@ namespace System.Windows.Interactivity
             if (e.NewValue != null)
             {
                 InteractivityTemplate interactivityTemplate = (InteractivityTemplate)e.NewValue;
-#if (!SILVERLIGHT && !WinRT)
+#if NET
                 interactivityTemplate.Seal();
 #endif
                 InteractivityItems interactivityItems = (InteractivityItems)interactivityTemplate.LoadContent();
