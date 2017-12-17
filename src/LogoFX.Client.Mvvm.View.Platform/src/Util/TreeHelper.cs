@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-#if NET45
+#if NET
 using System.Windows;
 using System.Windows.Media;
 #endif
