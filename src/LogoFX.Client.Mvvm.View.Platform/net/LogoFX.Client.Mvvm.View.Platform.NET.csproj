@@ -164,6 +164,9 @@
     <Compile Include="..\src\Converters\TimeToDoubleConverter.cs">
       <Link>Converters\TimeToDoubleConverter.cs</Link>
     </Compile>
+    <Compile Include="..\src\DependencyProperties\SizeObserver.cs">
+      <Link>DependencyProperties\SizeObserver.cs</Link>
+    </Compile>
     <Compile Include="..\src\Interactivity\Actions\SetFocusAction.cs">
       <Link>Interactivity\Actions\SetFocusAction.cs</Link>
     </Compile>
@@ -224,6 +227,12 @@
     <Compile Include="..\src\MarkupExtensions\UpdatableMarkupExtension.cs">
       <Link>MarkupExtensions\UpdatableMarkupExtension.cs</Link>
     </Compile>
+    <Compile Include="..\src\TriggerActions\ValidationErrorAction.cs">
+      <Link>TriggerActions\ValidationErrorAction.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Util\BindingProxy.cs">
+      <Link>Util\BindingProxy.cs</Link>
+    </Compile>
     <Compile Include="..\src\Util\InteractivityHelper.cs">
       <Link>Util\InteractivityHelper.cs</Link>
     </Compile>
@@ -244,6 +253,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
