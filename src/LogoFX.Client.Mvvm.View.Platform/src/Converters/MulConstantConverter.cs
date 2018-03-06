@@ -1,39 +1,46 @@
 using System;
 using System.Globalization;
-#if WinRT
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Imaging;
-using CultureInfo = System.String;
-#else
 using System.Windows.Data;
-#endif
 
 namespace LogoFX.Client.Mvvm.View.Converters
 {
+    /// <summary>
+    /// Miltiplies the value by the provided parameter.
+    /// </summary>
     public class MulConstantConverter : IValueConverter
     {
+        /// <summary>
+        /// Gets or sets the default parameter value.
+        /// </summary>
+        public decimal DefaultParam { get; set; }
+
+        /// <summary>
+        /// Creates a new instance of the <see cref="MulConstantConverter"/>
+        /// </summary>
+        public MulConstantConverter()
+        {
+            DefaultParam = 1;
+        }
+
+        /// <inheritdoc />
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (parameter == null)
-                parameter = 1;
-            Decimal dec = System.Convert.ToDecimal(value);
+                parameter = DefaultParam;
+            var dec = System.Convert.ToDecimal(value, culture);
             if (dec < 0)
             {
-                return Double.NaN;
+                return double.NaN;
             }
-            else
-            {
-                return dec*System.Convert.ToDecimal(parameter);
-            }
+            return dec * System.Convert.ToDecimal(parameter, culture);
         }
 
+        /// <inheritdoc />
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (parameter == null)
-                parameter = 1;
-            return System.Convert.ToDecimal(value) / System.Convert.ToDecimal(parameter);
+                parameter = DefaultParam;
+            return System.Convert.ToDecimal(value, culture) / System.Convert.ToDecimal(parameter, culture);
         }
     }
 }

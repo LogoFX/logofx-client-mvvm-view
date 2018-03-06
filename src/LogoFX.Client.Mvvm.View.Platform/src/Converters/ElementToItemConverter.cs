@@ -2,15 +2,8 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Windows;
-#if WinRT
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Data;
-using CultureInfo = System.String;
-#else
 using System.Windows.Data;
 using System.Windows.Controls;
-#endif
 
 namespace LogoFX.Client.Mvvm.View.Converters
 {

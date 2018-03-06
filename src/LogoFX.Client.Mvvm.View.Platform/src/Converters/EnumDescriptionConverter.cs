@@ -1,5 +1,4 @@
-﻿#if NET45
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Data;
@@ -62,4 +61,3 @@ namespace LogoFX.Client.Mvvm.View.Converters
         }
     }
 }
-#endif

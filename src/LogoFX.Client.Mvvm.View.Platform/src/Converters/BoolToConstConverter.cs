@@ -1,20 +1,14 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows;
-#if WinRT
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Data;
-using CultureInfo = System.String;
-#else
 using System.Windows.Data;
-#endif
 
 namespace LogoFX.Client.Mvvm.View.Converters
 {
   /// <summary>
   /// Converts boolean to constant value
   /// </summary>
-  public class BoolToConstConverter:IValueConverter
+  public class BoolToConstConverter : IValueConverter
   {
       /// <summary>
       /// Converts a value.

@@ -104,6 +104,9 @@
     <Compile Include="..\src\Converters\ElementToItemConverter.cs">
       <Link>Converters\ElementToItemConverter.cs</Link>
     </Compile>
+    <Compile Include="..\src\Converters\EmptyStringToValueConverter.cs">
+      <Link>Converters\EmptyStringToValueConverter.cs</Link>
+    </Compile>
     <Compile Include="..\src\Converters\EnumConverter.cs">
       <Link>Converters\EnumConverter.cs</Link>
     </Compile>
@@ -133,6 +136,12 @@
     </Compile>
     <Compile Include="..\src\Converters\MulConstantConverter.cs">
       <Link>Converters\MulConstantConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Converters\MultiBooleanAndToVisibilityConverter.cs">
+      <Link>Converters\MultiBooleanAndToVisibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Converters\MultiBooleanOrToVisibilityConverter.cs">
+      <Link>Converters\MultiBooleanOrToVisibilityConverter.cs</Link>
     </Compile>
     <Compile Include="..\src\Converters\NegativeConverter.cs">
       <Link>Converters\NegativeConverter.cs</Link>

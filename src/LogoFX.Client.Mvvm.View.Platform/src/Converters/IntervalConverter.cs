@@ -1,24 +1,15 @@
 ﻿using System;
-#if WinRT
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Imaging;
-using CultureInfo = System.String;
-#else
 using System.Windows.Data;
 using System.Globalization;
-#endif
 
 namespace LogoFX.Client.Mvvm.View.Converters
 {
   /// <summary>
   /// Provides a way to apply interval formating to a binding.
   /// </summary>
-  public class IntervalConverter : IValueConverter
-  {
-
-    #region IValueConverter Members
+    public class IntervalConverter : IValueConverter
+    {
+        #region IValueConverter Members
 
     /// <summary>
     /// Converts a value.
@@ -49,5 +40,5 @@ namespace LogoFX.Client.Mvvm.View.Converters
     }
 
     #endregion
-  }
+    }
 }

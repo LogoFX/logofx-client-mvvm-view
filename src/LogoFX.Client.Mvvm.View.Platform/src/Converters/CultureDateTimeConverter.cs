@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Threading;
-#if WinRT
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Data;
-using CultureInfo = System.String;
-#else
 using System.Windows.Data;
-#endif
 
 namespace LogoFX.Client.Mvvm.View.Converters
 {
@@ -29,11 +23,7 @@ namespace LogoFX.Client.Mvvm.View.Converters
         /// </returns>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-#if WinRT
-            IFormatProvider ifp = System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat;
-#else
             IFormatProvider ifp = Thread.CurrentThread.CurrentUICulture.DateTimeFormat;
-#endif
             if (value is DateTime)
             {
                 DateTime dt = (DateTime)value;

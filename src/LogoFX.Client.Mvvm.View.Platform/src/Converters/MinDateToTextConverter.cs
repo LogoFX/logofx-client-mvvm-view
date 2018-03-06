@@ -1,14 +1,6 @@
 ﻿using System;
 using System.Globalization;
-#if WinRT
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Imaging;
-using CultureInfo = System.String;
-#else
 using System.Windows.Data;
-#endif
 
 namespace LogoFX.Client.Mvvm.View.Converters
 {
@@ -16,7 +8,7 @@ namespace LogoFX.Client.Mvvm.View.Converters
     /// Converts minimal value of <see cref="DateTime"/> to text.
     /// </summary>
     /// <seealso cref="System.Windows.Data.IValueConverter" />
-    public class MinDateToTextConverter:IValueConverter
+    public class MinDateToTextConverter : IValueConverter
     {
         /// <summary>
         /// Converts a value. 

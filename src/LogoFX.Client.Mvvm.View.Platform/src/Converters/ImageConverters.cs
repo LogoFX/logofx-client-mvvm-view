@@ -2,17 +2,9 @@
 using System.Diagnostics;
 using System.Globalization;
 using System.Windows;
-#if WinRT
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Imaging;
-using CultureInfo = System.String;
-#else
 using System.Windows.Data;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-#endif
 
 namespace LogoFX.Client.Mvvm.View.Converters
 {
