@@ -27,12 +27,12 @@ namespace LogoFX.Client.Mvvm.View.Converters
         {
             if (parameter == null)
                 parameter = DefaultParam;
-            var dec = System.Convert.ToDecimal(value, culture);
+            var dec = value.ToDecimal();
             if (dec < 0)
             {
                 return double.NaN;
             }
-            return dec * System.Convert.ToDecimal(parameter, culture);
+            return dec * parameter.ToDecimal();
         }
 
         /// <inheritdoc />
@@ -40,7 +40,15 @@ namespace LogoFX.Client.Mvvm.View.Converters
         {
             if (parameter == null)
                 parameter = DefaultParam;
-            return System.Convert.ToDecimal(value, culture) / System.Convert.ToDecimal(parameter, culture);
+            return value.ToDecimal() / parameter.ToDecimal();
+        }        
+    }
+
+    static class CultureExtensions
+    {
+        internal static decimal ToDecimal(this object value)
+        {
+            return Convert.ToDecimal(value, CultureInfo.InvariantCulture);
         }
     }
 }
