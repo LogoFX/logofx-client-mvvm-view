@@ -10,6 +10,7 @@ namespace LogoFX.Client.Mvvm.View.Converters
   /// </summary>
   public class TimeToDoubleConverter : IValueConverter
   {
+    /// <inheritdoc />
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
       if (value is System.DateTime)
@@ -34,6 +35,7 @@ namespace LogoFX.Client.Mvvm.View.Converters
       return DependencyProperty.UnsetValue;
     }
 
+    /// <inheritdoc />
     public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
     {
       switch ((string)parameter)

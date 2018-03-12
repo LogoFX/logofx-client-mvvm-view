@@ -71,29 +71,36 @@ namespace System.Windows.Interactivity
 
         #region Template attached property
 
+        /// <summary>
+        /// Gets the interactivity template.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public static InteractivityTemplate GetTemplate(DependencyObject obj)
         {
             return (InteractivityTemplate)obj.GetValue(TemplateProperty);
         }
 
+        /// <summary>
+        /// Sets the interactivity template.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="value"></param>
         public static void SetTemplate(DependencyObject obj, InteractivityTemplate value)
         {
             obj.SetValue(TemplateProperty, value);
         }
 
+        /// <summary>
+        /// Defines the interactivity template property.
+        /// </summary>
         public static readonly DependencyProperty TemplateProperty =
             DependencyProperty.RegisterAttached("Template", typeof(InteractivityTemplate), typeof(InteractivityItems),
                                                 new PropertyMetadata(default(InteractivityTemplate), OnTemplateChanged));
 
         private static void OnTemplateChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-#if WinRT
-            FrameworkElement target = d as FrameworkElement;
-            if(target == null)
-                return;
-#else
             DependencyObject target = d;
-#endif
             if (e.OldValue != null)
             {
                 InteractivityTemplate interactivityTemplate = (InteractivityTemplate)e.OldValue;

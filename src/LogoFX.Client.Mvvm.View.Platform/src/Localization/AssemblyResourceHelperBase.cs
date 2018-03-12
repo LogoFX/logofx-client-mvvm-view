@@ -12,6 +12,9 @@ namespace LogoFX.Client.Mvvm.View.Localization
     {
         #region Fields
 
+        /// <summary>
+        /// Gets the assembly name.
+        /// </summary>
         protected readonly AssemblyName _assemblyName;
 
         private static readonly Dictionary<AssemblyResourceHelperBase, AppDomain> s_domains =
@@ -21,6 +24,10 @@ namespace LogoFX.Client.Mvvm.View.Localization
 
         #region Constructors
 
+        /// <summary>
+        /// Creates new instance of <see cref="AssemblyResourceHelperBase"/> using the provided assembly name.
+        /// </summary>
+        /// <param name="assemblyName"></param>
         protected AssemblyResourceHelperBase(AssemblyName assemblyName)
         {
             _assemblyName = assemblyName;

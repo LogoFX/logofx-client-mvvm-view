@@ -8,6 +8,9 @@ using System.Resources;
 
 namespace LogoFX.Client.Mvvm.View.Localization
 {
+    /// <summary>
+    /// Provides various resource utilities.
+    /// </summary>
     public static class AssemblyResourceUtility
     {
         #region Fields
@@ -28,6 +31,11 @@ namespace LogoFX.Client.Mvvm.View.Localization
 
         #region Public Methods
 
+        /// <summary>
+        /// Extracts resources from the provided assembly.
+        /// </summary>
+        /// <param name="assembly"></param>
+        /// <returns></returns>
         public static ResourceSetCollection ExtractResources(Assembly assembly)
         {
             ResourceSetCollection result = new ResourceSetCollection();
@@ -83,6 +91,11 @@ namespace LogoFX.Client.Mvvm.View.Localization
             return result;
         }
 
+        /// <summary>
+        /// Gets the shortened version of resource name.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static string FullResourceNameToShortOne(string value)
         {
             value = RemoveResourceExtension(value);
@@ -96,6 +109,11 @@ namespace LogoFX.Client.Mvvm.View.Localization
             return value;
         }
 
+        /// <summary>
+        /// Provides default resource set name.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static string LocalResourceSetNameToDefaultOne(string value)
         {
             string tmp = RemoveResourceExtension(value);
@@ -126,6 +144,12 @@ namespace LogoFX.Client.Mvvm.View.Localization
             return value;
         }
 
+        /// <summary>
+        /// Localizes the default resource set name.
+        /// </summary>
+        /// <param name="defaultName"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
         public static string DefaultResourceSetNameToLocalOne(string defaultName, CultureInfo culture)
         {
             string tmp = RemoveResourceExtension(defaultName);
@@ -135,6 +159,12 @@ namespace LogoFX.Client.Mvvm.View.Localization
             return tmp;
         }
 
+        /// <summary>
+        /// Compares two assemblies' names.
+        /// </summary>
+        /// <param name="an1"></param>
+        /// <param name="an2"></param>
+        /// <returns></returns>
         public static bool CompareAssemblyNames(AssemblyName an1, AssemblyName an2)
         {
             bool result = ReferenceEquals(an1, an2);
@@ -154,6 +184,12 @@ namespace LogoFX.Client.Mvvm.View.Localization
             return result;
         }
 
+        /// <summary>
+        /// Creates new assembly based on its name and culture.
+        /// </summary>
+        /// <param name="baseAssemblyName"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
         public static AssemblyName CreateNewLocalAssembly(AssemblyName baseAssemblyName, CultureInfo culture)
         {
             AssemblyName result = new AssemblyName(baseAssemblyName.Name + ExtensionPart);
@@ -181,6 +217,12 @@ namespace LogoFX.Client.Mvvm.View.Localization
             return result;
         }
 
+        /// <summary>
+        /// Creates local assembly file name.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="assemblyName"></param>
+        /// <returns></returns>
         public static string CreateLocalAssemblyFileName(string path, AssemblyName assemblyName)
         {
             if (assemblyName.CultureInfo == CultureInfo.InvariantCulture)
@@ -199,6 +241,11 @@ namespace LogoFX.Client.Mvvm.View.Localization
             return fullName;
         }
 
+        /// <summary>
+        /// Creates local assembly file name.
+        /// </summary>
+        /// <param name="baseAssemblyName"></param>
+        /// <returns></returns>
         public static string CreateLocalAssemblyFileName(AssemblyName baseAssemblyName)
         {
             string fileNameWithoutExtension = baseAssemblyName.Name;

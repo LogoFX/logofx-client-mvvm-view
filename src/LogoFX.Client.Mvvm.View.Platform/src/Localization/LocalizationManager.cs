@@ -19,6 +19,9 @@ using LogoFX.Client.Mvvm.View.Annotations;
 
 namespace LogoFX.Client.Mvvm.View.Localization
 {
+    /// <summary>
+    /// Represents the localication manager.
+    /// </summary>
     public sealed class LocalizationManager : INotifyPropertyChanged
     {
 #region Fields
@@ -69,19 +72,22 @@ namespace LogoFX.Client.Mvvm.View.Localization
 
 #region Public Properties
 
-        public static LocalizationManager Instance
-        {
-            get { return s_instance.Value; }
-        }
+        /// <summary>
+        /// Gets the instance of <see cref="LocalizationManager"/>
+        /// </summary>
+        public static LocalizationManager Instance => s_instance.Value;
 
-        public IEnumerable<CultureInfo> AvailableCultures
-        {
-            get { return _assemblies.Keys.ToArray(); }
-        }
+        /// <summary>
+        /// Gets the collection of available cultures.
+        /// </summary>
+        public IEnumerable<CultureInfo> AvailableCultures => _assemblies.Keys.ToArray();
 
+        /// <summary>
+        /// Gets or sets the current culture.
+        /// </summary>
         public CultureInfo CurrentCulture
         {
-            get { return _currentCulture; }
+            get => _currentCulture;
             set
             {
                 if (_currentCulture != null && _currentCulture.Equals(value))
@@ -89,14 +95,7 @@ namespace LogoFX.Client.Mvvm.View.Localization
                     return;
                 }
 
-                if (_assemblies.ContainsKey(value))
-                {
-                    _currentCulture = value;
-                }
-                else
-                {
-                    _currentCulture = CultureInfo.InvariantCulture;
-                }
+                _currentCulture = _assemblies.ContainsKey(value) ? value : CultureInfo.InvariantCulture;
 
                 Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentUICulture = _currentCulture;
                 RebuildCache(value);
@@ -111,18 +110,20 @@ namespace LogoFX.Client.Mvvm.View.Localization
         /// </summary>
         public static Func<IEnumerable<string>> GetAssemblyNames = () => new[] { Assembly.GetEntryAssembly().CodeBase };
 
-        public FlowDirection FlowDirection
-        {
-            get
-            {
-                return CurrentCulture.TextInfo.IsRightToLeft ? FlowDirection.RightToLeft : FlowDirection.LeftToRight;
-            }
-        }
+        /// <summary>
+        /// Gets the current flow direction.
+        /// </summary>
+        public FlowDirection FlowDirection => CurrentCulture.TextInfo.IsRightToLeft ? FlowDirection.RightToLeft : FlowDirection.LeftToRight;
 
-#endregion
+        #endregion
 
 #region Public Methods
 
+        /// <summary>
+        /// Gets resource by its key.
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public string GetString(string key)
         {
             string result = null;
@@ -146,6 +147,12 @@ namespace LogoFX.Client.Mvvm.View.Localization
             return result;
         }
 
+        /// <summary>
+        /// Gets the resource by its key and optional list of arguments.
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="args"></param>
+        /// <returns></returns>
         public string GetString(string key, params object[] args)
         {
             string format = GetString(key);
@@ -265,17 +272,15 @@ namespace LogoFX.Client.Mvvm.View.Localization
 
 #region INotifyPropertyChanged
 
+        /// <summary>
+        /// Defines event for <see cref="INotifyPropertyChanged"/> default implementation.
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            PropertyChangedEventHandler handler = PropertyChanged;
-
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(propertyName));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
 #endregion

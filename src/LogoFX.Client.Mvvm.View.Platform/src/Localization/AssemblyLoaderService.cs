@@ -334,6 +334,9 @@ namespace LogoFX.Client.Mvvm.View.Localization
 
         #region Public Properties
 
+        /// <summary>
+        /// Gets an instance of <see cref="AssemblyLoaderService"/>.
+        /// </summary>
         public static AssemblyLoaderService Instance
         {
             get
@@ -368,5 +371,9 @@ namespace LogoFX.Client.Mvvm.View.Localization
         #endregion
     }
 
+    /// <summary>
+    /// Defines the delegate for loading resource set collection.
+    /// </summary>
+    /// <param name="resourceSetCollection"></param>
     public delegate void LoadResourceSetsHandler(ResourceSetCollection resourceSetCollection);
 }

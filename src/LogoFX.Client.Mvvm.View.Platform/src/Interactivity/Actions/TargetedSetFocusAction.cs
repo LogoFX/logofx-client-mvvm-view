@@ -3,24 +3,16 @@ using System.Windows.Interactivity;
 
 namespace LogoFX.Client.Mvvm.View.Interactivity.Actions
 {
-    [TypeConstraintAttribute(typeof(DependencyObject))]
-    public class TargetedSetFocusAction
-#if SILVERLIGHT || WinRT
-        : TargetedTriggerAction<Control>
-#else
- : TargetedTriggerAction<UIElement>
-#endif
+    /// <summary>
+    /// Sets focus to the associated object.
+    /// </summary>
+    [TypeConstraintAttribute(typeof(DependencyObject))]   
+    public class TargetedSetFocusAction : TargetedTriggerAction<UIElement>
     {
+        /// <inheritdoc />
         protected override void Invoke(object parameter)
         {
-            if (Target != null)
-            {
-#if WinRT
-                bool focused = Target.Focus(FocusState.Programmatic);
-#else
-                bool focused = Target.Focus();
-#endif
-            }
+            Target?.Focus();
         }
     }
 }

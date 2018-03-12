@@ -6,6 +6,9 @@ using System.Resources;
 
 namespace LogoFX.Client.Mvvm.View.Localization
 {
+    /// <summary>
+    /// Represents the meaning of saving assembly resources.
+    /// </summary>
     public sealed class AssemblyResourceSaver : AssemblyResourceHelperBase
     {
         #region Fields
@@ -16,6 +19,12 @@ namespace LogoFX.Client.Mvvm.View.Localization
 
         #region Constructors
 
+        /// <summary>
+        /// Creates new instance of <see cref="AssemblyResourceSaver"/> using the provided assembly name
+        /// and the target file.
+        /// </summary>
+        /// <param name="assemblyName"></param>
+        /// <param name="assemblyFile"></param>
         public AssemblyResourceSaver(AssemblyName assemblyName, string assemblyFile)
             : base(assemblyName)
         {
@@ -34,6 +43,12 @@ namespace LogoFX.Client.Mvvm.View.Localization
 
         #region Public Methods
 
+        /// <summary>
+        /// Creates an instance of <see cref="AssemblyResourceSaver"/> in a new domain.
+        /// </summary>
+        /// <param name="assemblyName"></param>
+        /// <param name="assemblyFile"></param>
+        /// <returns></returns>
         public static AssemblyResourceSaver CreateInNewDomain(AssemblyName assemblyName, string assemblyFile)
         {
             AssemblyResourceSaver result = CreateInNewDomainInternal<AssemblyResourceSaver>(assemblyName, assemblyFile);
@@ -41,6 +56,10 @@ namespace LogoFX.Client.Mvvm.View.Localization
             return result;
         }
 
+        /// <summary>
+        /// Saves the provided resources into a new assembly.
+        /// </summary>
+        /// <param name="resourceSetCollection"></param>
         public void CreateAssembly(ResourceSetCollection resourceSetCollection)
         {
             string dir = Path.GetDirectoryName(_assemblyFile);

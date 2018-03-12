@@ -1,26 +1,22 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-#if !WinRT
-
-#else
-using LogoFX.Core;
-using Windows.UI.Interactivity;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Markup;
-using Windows.UI.Xaml.Media;
-using EventTrigger = Windows.UI.Interactivity.EventTrigger;
-#endif
 
 namespace LogoFX.Client.Mvvm.View.Interactivity.Behaviors
 {
+    /// <summary>
+    /// Helper class for managing password binding.
+    /// </summary>
     public static class PasswordHelper
     {
+        /// <summary>
+        /// Defined the bound password property.
+        /// </summary>
         public static readonly DependencyProperty BoundPasswordProperty =
             DependencyProperty.RegisterAttached("BoundPassword", typeof(string), typeof(PasswordHelper), new PropertyMetadata(string.Empty, OnBoundPasswordChanged));
 
+        /// <summary>
+        /// Defines the whether-to-bound password property.
+        /// </summary>
         public static readonly DependencyProperty BindPasswordProperty = DependencyProperty.RegisterAttached(
             "BindPassword", typeof(bool), typeof(PasswordHelper), new PropertyMetadata(false, OnBindPasswordChanged));
 
@@ -81,21 +77,41 @@ namespace LogoFX.Client.Mvvm.View.Interactivity.Behaviors
             SetUpdatingPassword(box, false);
         }
 
+        /// <summary>
+        /// Sets the value indicating whether the password is bound.
+        /// </summary>
+        /// <param name="dp">The dependency object</param>
+        /// <param name="value">The value.</param>
         public static void SetBindPassword(DependencyObject dp, bool value)
         {
             dp.SetValue(BindPasswordProperty, value);
         }
 
+        /// <summary>
+        /// Gets the value indicating whether the password is bound.
+        /// </summary>
+        /// <param name="dp"></param>
+        /// <returns></returns>
         public static bool GetBindPassword(DependencyObject dp)
         {
             return (bool)dp.GetValue(BindPasswordProperty);
         }
 
+        /// <summary>
+        /// Gets the bound password value.
+        /// </summary>
+        /// <param name="dp">The dependency object.</param>
+        /// <returns></returns>
         public static string GetBoundPassword(DependencyObject dp)
         {
             return (string)dp.GetValue(BoundPasswordProperty);
         }
 
+        /// <summary>
+        /// Sets the bound password value.
+        /// </summary>
+        /// <param name="dp">The dependency object.</param>
+        /// <param name="value">The password.</param>
         public static void SetBoundPassword(DependencyObject dp, string value)
         {
             dp.SetValue(BoundPasswordProperty, value);

@@ -10,11 +10,13 @@ namespace LogoFX.Client.Mvvm.View.Converters
   /// </summary>
   public class SupressTwoWayConverter : IValueConverter
   {
+    /// <inheritdoc />
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
       return DependencyProperty.UnsetValue;
     }
-
+    
+    /// <inheritdoc />
     public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
     {
       return value;

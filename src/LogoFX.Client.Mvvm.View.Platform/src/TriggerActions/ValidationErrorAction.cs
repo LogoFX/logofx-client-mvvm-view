@@ -4,6 +4,9 @@ using System.Windows.Interactivity;
 
 namespace LogoFX.Client.Mvvm.View.TriggerActions
 {
+    /// <summary>
+    /// Defines an action which should be called when validation yields an error.
+    /// </summary>
     public class ValidationErrorAction : TriggerAction<FrameworkElement>
     {
         /// <summary>

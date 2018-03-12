@@ -245,15 +245,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\LogoFX.Client.Mvvm.View\netstandard2.0\LogoFX.Client.Mvvm.View.NETStandard20.csproj">
       <Project>{780d6a55-36fe-4ff6-ab7e-a4cc79398c27}</Project>
       <Name>LogoFX.Client.Mvvm.View.NETStandard20</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
