@@ -5,6 +5,8 @@
     <AssemblyName>LogoFX.Client.Mvvm.View</AssemblyName>
     <RootNamespace>LogoFX.Client.Mvvm.View</RootNamespace>
     <Version>1.1.1</Version>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>LogoFX.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
