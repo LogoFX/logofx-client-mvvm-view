@@ -123,6 +123,9 @@
     <Compile Include="..\src\Converters\EqualsToBooleanConverter.cs">
       <Link>Converters\EqualsToBooleanConverter.cs</Link>
     </Compile>
+    <Compile Include="..\src\Converters\EqualsToConverterHelper.cs">
+      <Link>Converters\EqualsToConverterHelper.cs</Link>
+    </Compile>
     <Compile Include="..\src\Converters\EqualsToVisibilityConverter.cs">
       <Link>Converters\EqualsToVisibilityConverter.cs</Link>
     </Compile>
