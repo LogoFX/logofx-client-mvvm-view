@@ -245,6 +245,7 @@
     <Compile Include="..\src\Xaml\SharedResourceDictionary.cs">
       <Link>Xaml\SharedResourceDictionary.cs</Link>
     </Compile>
+    <Compile Include="Interactivity\Behaviors\SelectorItemBindingBehavior.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
