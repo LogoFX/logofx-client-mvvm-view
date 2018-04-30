@@ -9,10 +9,17 @@ using System.Windows.Interactivity;
 
 namespace LogoFX.Client.Mvvm.View.Interactivity.Behaviors
 {
+    /// <summary>
+    /// Allows syncronization between a selector control and its underlying data source.
+    /// </summary>
     public class SelectorItemBindingBehavior : Behavior<Selector>
     {
+        /// <summary>
+        /// Defines the binding for the selected item update.
+        /// </summary>
         public Binding SelectedItemBinding { get; set; }
 
+        /// <inheritdoc />        
         protected override void OnAttached()
         {
             base.OnAttached();
@@ -21,6 +28,7 @@ namespace LogoFX.Client.Mvvm.View.Interactivity.Behaviors
             AssociatedObject.ItemContainerGenerator.ItemsChanged += ItemContainerGenerator_ItemsChanged;
         }
 
+        /// <inheritdoc /> 
         protected override void OnDetaching()
         {
             AssociatedObject.ItemContainerGenerator.ItemsChanged -= ItemContainerGenerator_ItemsChanged;
