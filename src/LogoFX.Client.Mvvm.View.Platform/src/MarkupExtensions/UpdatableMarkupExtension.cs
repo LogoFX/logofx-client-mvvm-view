@@ -1,4 +1,4 @@
-﻿#if NET45
+﻿#if NET
 using System;
 using System.Reflection;
 using System.Windows;

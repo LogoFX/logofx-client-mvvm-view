@@ -1,4 +1,4 @@
-﻿#if NET45
+﻿#if NET
 using System;
 using LogoFX.Client.Core;
 using LogoFX.Client.Mvvm.View.Localization;
