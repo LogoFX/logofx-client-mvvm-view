@@ -53,6 +53,10 @@
       <Project>{7ccd7879-dc5f-485c-a54c-aec4980130eb}</Project>
       <Name>LogoFX.Client.Mvvm.View.Platform.NET</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LogoFX.Client.Mvvm.View\LogoFX.Client.Mvvm.View.csproj">
+      <Project>{5f9a6a47-32f3-4021-8fb3-bf1cda0017d3}</Project>
+      <Name>LogoFX.Client.Mvvm.View</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FluentAssertions">
