@@ -1,4 +1,7 @@
-﻿using System.IO;
+﻿//.NET Core doesn't support dynamic assembly definition API
+//see https://stackoverflow.com/questions/36937276/is-there-any-replace-of-assemblybuilder-definedynamicassembly-in-net-core
+#if NET
+using System.IO;
 using System.Reflection;
 
 namespace LogoFX.Client.Mvvm.View.Localization
@@ -8,24 +11,24 @@ namespace LogoFX.Client.Mvvm.View.Localization
     /// </summary>
     public sealed class AssemblySaverService
     {
-        #region Fields
+#region Fields
 
         private static AssemblySaverService s_instance;
 
         private static readonly object s_sync = new object();
 
-        #endregion
+#endregion
 
-        #region Constructors
+#region Constructors
 
         private AssemblySaverService()
         {
 
         }
 
-        #endregion
+#endregion
 
-        #region Public Methods
+#region Public Methods
 
         /// <summary>
         /// Saves the specified local assembly collection.
@@ -39,9 +42,9 @@ namespace LogoFX.Client.Mvvm.View.Localization
             }
         }
 
-        #endregion
+#endregion
 
-        #region Public Properties
+#region Public Properties
 
         /// <summary>
         /// Gets the instance of <see cref="AssemblySaverService"/>.
@@ -60,9 +63,9 @@ namespace LogoFX.Client.Mvvm.View.Localization
             }
         }
 
-        #endregion
+#endregion
 
-        #region Private Members
+#region Private Members
 
         private void Save(string path, AssemblyName assemblyName, ResourceSetCollection resourceSetCollection)
         {
@@ -85,6 +88,7 @@ namespace LogoFX.Client.Mvvm.View.Localization
             AssemblyResourceSaver.DestroyDomain(assemblyResourceSaver);
         }
 
-        #endregion
+#endregion
     }
 }
+#endif

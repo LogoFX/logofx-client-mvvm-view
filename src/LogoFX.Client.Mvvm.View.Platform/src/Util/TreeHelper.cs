@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-#if NET
+#if NET || NETCORE
 using System.Windows;
 using System.Windows.Media;
 #endif
@@ -70,7 +70,7 @@ namespace LogoFX.Client.Mvvm.View.Util
 
             return obj as T;
         }
-#if NET45        
+#if NET || NETCORE   
         /// <summary>
         /// Finds the logical ancestor of the specified type.
         /// </summary>

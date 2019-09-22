@@ -8,7 +8,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Threading;
-#if NET
+#if NET || NETCORE
 using System.Windows;
 using System.Windows.Threading;
 #endif

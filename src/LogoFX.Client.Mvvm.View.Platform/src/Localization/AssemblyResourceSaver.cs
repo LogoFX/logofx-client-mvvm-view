@@ -1,4 +1,7 @@
-﻿using System;
+﻿//.NET Core doesn't support dynamic assembly definition API
+//see https://stackoverflow.com/questions/36937276/is-there-any-replace-of-assemblybuilder-definedynamicassembly-in-net-core
+#if NET
+using System;
 using System.IO;
 using System.Reflection;
 using System.Reflection.Emit;
@@ -11,13 +14,13 @@ namespace LogoFX.Client.Mvvm.View.Localization
     /// </summary>
     public sealed class AssemblyResourceSaver : AssemblyResourceHelperBase
     {
-        #region Fields
+#region Fields
 
         private readonly string _assemblyFile;
 
-        #endregion
+#endregion
 
-        #region Constructors
+#region Constructors
 
         /// <summary>
         /// Creates new instance of <see cref="AssemblyResourceSaver"/> using the provided assembly name
@@ -31,17 +34,17 @@ namespace LogoFX.Client.Mvvm.View.Localization
             _assemblyFile = assemblyFile;
         }
 
-        #endregion
+#endregion
 
-        #region Dependency Properties
+#region Dependency Properties
 
-        #endregion
+#endregion
 
-        #region Public Properties
+#region Public Properties
 
-        #endregion
+#endregion
 
-        #region Public Methods
+#region Public Methods
 
         /// <summary>
         /// Creates an instance of <see cref="AssemblyResourceSaver"/> in a new domain.
@@ -77,9 +80,9 @@ namespace LogoFX.Client.Mvvm.View.Localization
             assemblyBuilder.Save(fileName);
         }
 
-        #endregion
+#endregion
 
-        #region Private Members
+#region Private Members
 
         private void CreateResourceSet(string name, ResourceCollection resourceCollection, ModuleBuilder moduleBuilder)
         {
@@ -91,7 +94,8 @@ namespace LogoFX.Client.Mvvm.View.Localization
             }
         }
 
-        #endregion
+#endregion
 
     }
 }
+#endif

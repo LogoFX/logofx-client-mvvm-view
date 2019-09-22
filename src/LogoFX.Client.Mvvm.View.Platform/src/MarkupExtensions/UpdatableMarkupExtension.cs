@@ -1,4 +1,4 @@
-﻿#if NET
+﻿#if NET || NETCORE
 using System;
 using System.Reflection;
 using System.Windows;

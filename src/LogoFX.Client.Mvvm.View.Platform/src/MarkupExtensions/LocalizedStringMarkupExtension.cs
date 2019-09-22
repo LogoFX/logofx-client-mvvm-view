@@ -1,4 +1,4 @@
-﻿#if NET
+﻿#if NET || NETCORE
 using System;
 using LogoFX.Client.Core;
 using LogoFX.Client.Mvvm.View.Localization;

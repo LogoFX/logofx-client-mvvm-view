@@ -98,7 +98,7 @@ namespace LogoFX.Client.Mvvm.View.Controls
             this.Cancel = false;
         }
 
-#if NET    
+#if NET || NETCORE 
         /// <summary>
         /// Initializes a new instance of the <see cref="RoutedPropertyChangingEventArgs{T}"/> class.
         /// </summary>
