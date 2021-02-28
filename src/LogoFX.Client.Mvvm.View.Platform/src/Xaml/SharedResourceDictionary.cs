@@ -1,7 +1,7 @@
 ﻿#if WINDOWS_UWP || NETFX_CORE
 using Windows.UI.Xaml;
 #endif
-#if NET || NETCORE
+#if NET || NETCORE || NETFRAMEWORK
 using System.Windows;
 #endif
 using System;

@@ -1,7 +1,7 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0-windows</TargetFramework>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <UseWPF>true</UseWPF>
     <AssemblyName>LogoFX.Client.Mvvm.View.Platform</AssemblyName>
@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DefineConstants>TRACE;NETCORE</DefineConstants>
+    <DefineConstants>TRACE;NET</DefineConstants>
     <OutputPath>..\..\bin\netcore\Release\</OutputPath>
     <DocumentationFile>..\..\bin\netcore\Release\LogoFX.Client.Mvvm.View.Platform.xml</DocumentationFile>
     <EmbedAllSources>True</EmbedAllSources>

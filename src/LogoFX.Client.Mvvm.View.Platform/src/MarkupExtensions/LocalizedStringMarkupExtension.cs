@@ -1,4 +1,4 @@
-﻿#if NET || NETCORE
+﻿#if NET || NETCORE || NETFRAMEWORK
 using System;
 using LogoFX.Client.Core;
 using LogoFX.Client.Mvvm.View.Localization;

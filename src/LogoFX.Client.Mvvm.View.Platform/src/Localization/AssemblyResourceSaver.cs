@@ -1,6 +1,6 @@
 ﻿//.NET Core doesn't support dynamic assembly definition API
 //see https://stackoverflow.com/questions/36937276/is-there-any-replace-of-assemblybuilder-definedynamicassembly-in-net-core
-#if NET
+#if NETFRAMEWORK
 using System;
 using System.IO;
 using System.Reflection;

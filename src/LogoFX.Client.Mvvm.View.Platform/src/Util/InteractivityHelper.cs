@@ -118,7 +118,7 @@ namespace System.Windows.Interactivity
             if (e.NewValue != null)
             {
                 InteractivityTemplate interactivityTemplate = (InteractivityTemplate)e.NewValue;
-#if NET || NETCORE
+#if NET || NETCORE || NETFRAMEWORK
                 interactivityTemplate.Seal();
 #endif
                 InteractivityItems interactivityItems = (InteractivityItems)interactivityTemplate.LoadContent();
