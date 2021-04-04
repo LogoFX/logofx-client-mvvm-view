@@ -1,2 +1,2 @@
-call uninstall-global-single LogoFX.Client.Mvvm.View.Core
-call uninstall-global-single LogoFX.Client.Mvvm.View
+call uninstall-global-single LogoFX.Client.Mvvm.View.Core %1
+call uninstall-global-single LogoFX.Client.Mvvm.View %1
