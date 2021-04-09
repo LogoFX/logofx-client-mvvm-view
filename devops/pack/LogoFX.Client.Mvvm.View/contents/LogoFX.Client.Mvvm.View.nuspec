@@ -19,5 +19,5 @@ view layer objects facilitating development by MVVM pattern</summary>
       <dependency id="LogoFX.Client.Core.Core" version="2.2.0-rc2" />
       <dependency id="LogoFX.Client.Mvvm.View.Core" version="2.2.0-rc2" />
     </dependencies>
-  </metadata>  
+  </metadata>
 </package>

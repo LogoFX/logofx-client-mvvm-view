@@ -18,5 +18,5 @@ view layer objects facilitating development by MVVM pattern</summary>
     <dependencies>
       <dependency id="JetBrains.Annotations" version="2020.3.0" />
     </dependencies>
-  </metadata>  
+  </metadata>
 </package>
