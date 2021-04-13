@@ -9,8 +9,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DefineConstants>TRACE;NET</DefineConstants>
-    <OutputPath>..\..\bin\netcore\Release\</OutputPath>
-    <DocumentationFile>..\..\bin\netcore\Release\LogoFX.Client.Mvvm.View.Platform.xml</DocumentationFile>
+    <OutputPath>..\..\bin\net\Release\</OutputPath>
+    <DocumentationFile>..\..\bin\net\Release\LogoFX.Client.Mvvm.View.Platform.xml</DocumentationFile>
     <EmbedAllSources>True</EmbedAllSources>
     <DebugType>embedded</DebugType>
     <DebugSymbols>true</DebugSymbols>
@@ -94,7 +94,7 @@
     <Folder Include="TriggerActions\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="LogoFX.Client.Core.Core" Version="2.2.0-rc1" />
+    <PackageReference Include="LogoFX.Client.Core.Core" Version="2.2.0-rc2" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\LogoFX.Client.Mvvm.View\LogoFX.Client.Mvvm.View.csproj" />

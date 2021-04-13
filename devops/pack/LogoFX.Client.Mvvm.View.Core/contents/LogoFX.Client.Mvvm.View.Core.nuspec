@@ -14,9 +14,6 @@
 view layer objects facilitating development by MVVM pattern</description>
     <summary>LogoFX Client Mvvm View Core containing core
 view layer objects facilitating development by MVVM pattern</summary>
-    <releaseNotes>Updated dependent packages</releaseNotes>
-    <dependencies>
-      <dependency id="JetBrains.Annotations" version="2020.3.0" />
-    </dependencies>
+    <releaseNotes>Updated dependent packages</releaseNotes>    
   </metadata>
 </package>
