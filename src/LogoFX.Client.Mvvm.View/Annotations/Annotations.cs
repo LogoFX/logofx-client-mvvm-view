@@ -1,5 +1,4 @@
 ﻿using System;
-using JetBrains.Annotations;
 
 namespace LogoFX.Client.Mvvm.View.Annotations
 {           
@@ -70,7 +69,6 @@ namespace LogoFX.Client.Mvvm.View.Annotations
         /// <value>
         /// The name of the parameter.
         /// </value>
-        [UsedImplicitly]
         public string ParameterName { get; private set; }
     }
         
@@ -123,7 +121,7 @@ namespace LogoFX.Client.Mvvm.View.Annotations
         /// Initializes a new instance of the <see cref="ContractAnnotationAttribute"/> class.
         /// </summary>
         /// <param name="fdt">The FDT.</param>
-        public ContractAnnotationAttribute([NotNull] string fdt)
+        public ContractAnnotationAttribute(string fdt)
             : this(fdt, false)
         {
         }
@@ -133,7 +131,7 @@ namespace LogoFX.Client.Mvvm.View.Annotations
         /// </summary>
         /// <param name="fdt">The FDT.</param>
         /// <param name="forceFullStates">if set to <c>true</c> [force full states].</param>
-        public ContractAnnotationAttribute([NotNull] string fdt, bool forceFullStates)
+        public ContractAnnotationAttribute(string fdt, bool forceFullStates)
         {
             FDT = fdt;
             ForceFullStates = forceFullStates;

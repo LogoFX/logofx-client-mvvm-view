@@ -36,7 +36,7 @@ namespace LogoFX.Client.Mvvm.View.Controls
         /// </summary>
         public event RoutedPropertyChangedEventHandler<bool> DropDownClosed;
 
-#if NET || NETCORE
+#if NET || NETCORE || NETFRAMEWORK
         static PopupHeaderedContentControl()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(PopupHeaderedContentControl), new FrameworkPropertyMetadata(typeof(PopupHeaderedContentControl)));

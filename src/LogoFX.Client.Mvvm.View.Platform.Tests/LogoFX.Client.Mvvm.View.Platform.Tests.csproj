@@ -49,9 +49,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LogoFX.Client.Mvvm.View.Platform\net\LogoFX.Client.Mvvm.View.Platform.NET.csproj">
-      <Project>{7ccd7879-dc5f-485c-a54c-aec4980130eb}</Project>
-      <Name>LogoFX.Client.Mvvm.View.Platform.NET</Name>
+    <ProjectReference Include="..\LogoFX.Client.Mvvm.View.Platform\netframework\LogoFX.Client.Mvvm.View.Platform.NETFramework.csproj">
+      <Project>{7CCD7879-DC5F-485C-A54C-AEC4980130EB}</Project>
+      <Name>LogoFX.Client.Mvvm.View.Platform.NETFramework</Name>
     </ProjectReference>
     <ProjectReference Include="..\LogoFX.Client.Mvvm.View\LogoFX.Client.Mvvm.View.csproj">
       <Project>{5f9a6a47-32f3-4021-8fb3-bf1cda0017d3}</Project>

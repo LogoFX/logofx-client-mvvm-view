@@ -1,4 +1,4 @@
-﻿#if NET || NETCORE
+﻿#if NET || NETCORE || NETFRAMEWORK
 using System;
 using System.Reflection;
 using System.Windows;
