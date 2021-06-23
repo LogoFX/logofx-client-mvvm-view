@@ -20,7 +20,7 @@ using LogoFX.Client.Mvvm.View.Annotations;
 namespace LogoFX.Client.Mvvm.View.Localization
 {
     /// <summary>
-    /// Represents the localication manager.
+    /// Represents the localization manager.
     /// </summary>
     public sealed class LocalizationManager : INotifyPropertyChanged
     {
