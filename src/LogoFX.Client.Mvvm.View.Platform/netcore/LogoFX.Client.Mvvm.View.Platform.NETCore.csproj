@@ -94,7 +94,7 @@
     <Folder Include="TriggerActions\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="LogoFX.Client.Core.Core" Version="2.2.0-rc3" />
+    <PackageReference Include="LogoFX.Client.Core.Core" Version="2.2.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\LogoFX.Client.Mvvm.View\LogoFX.Client.Mvvm.View.csproj" />
