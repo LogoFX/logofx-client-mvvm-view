@@ -14,6 +14,8 @@
 view layer objects facilitating development by MVVM pattern</description>
     <summary>LogoFX Client Mvvm View Core containing core
 view layer objects facilitating development by MVVM pattern</summary>
-    <releaseNotes>Updated dependent packages</releaseNotes>
+    <releaseNotes></releaseNotes>
+     <tags>framework logofx dotnet</tags>
+    <repository type="Open Source" url="https://github.com/LogoFX/logofx-client-mvvm-view" />
   </metadata>
 </package>
