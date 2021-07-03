@@ -172,7 +172,7 @@ namespace LogoFX.Client.Mvvm.View.Controls
                 // right plugin edge corresponds to X==0, so we need to adjust
                 // the rootOffsetX to be mirrored too, for the below code to
                 // compute popup position correctly
-                rootOffsetX = rootWidth - rootOffsetX;
+                rootOffsetX = dimensions.Width - rootOffsetX;
             }
 #endif
 
@@ -235,8 +235,8 @@ namespace LogoFX.Client.Mvvm.View.Controls
             Popup.VerticalOffset = 0;
 
 #if WINDOWS_UWP || NETFX_CORE
-            OutsidePopupCanvas.Width = rootWidth;
-            OutsidePopupCanvas.Height = rootHeight;
+            OutsidePopupCanvas.Width = dimensions.Width;
+            OutsidePopupCanvas.Height = dimensions.Height;
 
             // Transform the transparent canvas to the plugin's coordinate 
             // space origin.
