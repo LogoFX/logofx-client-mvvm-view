@@ -51,7 +51,6 @@ namespace LogoFX.Client.Mvvm.View.Controls
             this.DefaultStyleKey = typeof(PopupHeaderedContentControl);
 #endif
             Interaction = new InteractionHelper(this);
-            
         }
 
         #region PopupHorizontalOffset dependency property
@@ -75,9 +74,7 @@ namespace LogoFX.Client.Mvvm.View.Controls
             DependencyProperty.Register("PopupHorizontalOffset", typeof (double), typeof (PopupHeaderedContentControl), new PropertyMetadata(default(double), OnPopupOffsetChanged));
 
         private static void OnPopupOffsetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            
-        }
+        {}
 
         #endregion
 
@@ -102,9 +99,7 @@ namespace LogoFX.Client.Mvvm.View.Controls
             DependencyProperty.Register("PopupVerticalOffset", typeof (double), typeof (PopupHeaderedContentControl), new PropertyMetadata(default(double), OnPopupVerticalOffsetChanged));
 
         private static void OnPopupVerticalOffsetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            
-        }
+        {}
 
         #endregion
 
@@ -129,9 +124,7 @@ namespace LogoFX.Client.Mvvm.View.Controls
             DependencyProperty.Register("PopupPlacement", typeof (PopupPlacement), typeof (PopupHeaderedContentControl), new PropertyMetadata(default(PopupPlacement), OnPopupPlacementChanged));
 
         private static void OnPopupPlacementChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            
-        }
+        {}
 
         #endregion
 
@@ -241,10 +234,8 @@ namespace LogoFX.Client.Mvvm.View.Controls
 
         private void OnDropDownFocusChanged(object sender, EventArgs e)
         {
-           
             if (IsPopupOpen)
                 ClosingDropDown(true); 
-
         }
 
         void ClickHandler_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -273,7 +264,6 @@ namespace LogoFX.Client.Mvvm.View.Controls
                 //RaiseExpandCollapseAutomationEvent(oldValue, true);
                 OpenDropDown(oldValue, true);
             }
-
             UpdateVisualState(true);
         }
 
@@ -381,8 +371,6 @@ namespace LogoFX.Client.Mvvm.View.Controls
 
             OnDropDownClosing(args);
 
-            
-
             if (args.Cancel)
             {
                 _ignorePropertyChange = true;
@@ -400,10 +388,8 @@ namespace LogoFX.Client.Mvvm.View.Controls
                     CloseDropDown(oldValue, false);
                 }
             }
-
             UpdateVisualState(true);
         }
-
 
         private void CloseDropDown(bool oldValue, bool newValue)
         {
@@ -421,6 +407,5 @@ namespace LogoFX.Client.Mvvm.View.Controls
         {
             UpdateVisualState(useTransitions);
         }
-
     }
 }

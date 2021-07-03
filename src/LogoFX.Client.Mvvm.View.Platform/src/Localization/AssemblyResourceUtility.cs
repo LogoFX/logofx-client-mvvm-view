@@ -76,7 +76,6 @@ namespace LogoFX.Client.Mvvm.View.Localization
                         }
                     }
                 }
-
                 catch (Exception)
                 {
                     continue;
@@ -129,7 +128,6 @@ namespace LogoFX.Client.Mvvm.View.Localization
                 {
                     cultureInfo = CultureInfo.GetCultureInfoByIetfLanguageTag(localSign);
                 }
-
                 catch (Exception)
                 {
                     cultureInfo = null;

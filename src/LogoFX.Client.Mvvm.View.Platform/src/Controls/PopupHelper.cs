@@ -324,7 +324,7 @@ namespace LogoFX.Client.Mvvm.View.Controls
                 // This code is used to enable visual state transitions before 
                 // actually setting the underlying Popup.IsOpen property to false.
                 VisualStateGroup groupPopupClosed = VisualStates.TryGetVisualStateGroup(Parent, VisualStates.GroupPopup);
-                if (null != groupPopupClosed)
+                if (groupPopupClosed != null)
                 {
                     groupPopupClosed.CurrentStateChanged -= OnPopupClosedStateChanged;
                     UsesClosingVisualState = false;
@@ -349,7 +349,7 @@ namespace LogoFX.Client.Mvvm.View.Controls
             }
 
             VisualStateGroup groupPopupClosed = VisualStates.TryGetVisualStateGroup(Parent, VisualStates.GroupPopup);
-            if (null != groupPopupClosed)
+            if (groupPopupClosed != null)
             {
                 groupPopupClosed.CurrentStateChanged += OnPopupClosedStateChanged;
                 UsesClosingVisualState = true;

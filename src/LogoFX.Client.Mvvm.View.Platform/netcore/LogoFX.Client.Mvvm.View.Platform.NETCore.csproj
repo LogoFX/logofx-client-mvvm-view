@@ -77,6 +77,7 @@
     <Compile Include="..\src\TriggerActions\ValidationErrorAction.cs" Link="TriggerActions\ValidationErrorAction.cs" />
     <Compile Include="..\src\Util\BindingProxy.cs" Link="Util\BindingProxy.cs" />
     <Compile Include="..\src\Util\InteractivityHelper.cs" Link="Util\InteractivityHelper.cs" />
+    <Compile Include="..\src\Util\InteractivityTemplate.cs" Link="Util\InteractivityTemplate.cs" />        
     <Compile Include="..\src\Util\TreeHelper.cs" Link="Util\TreeHelper.cs" />
     <Compile Include="..\src\Xaml\SharedResourceDictionary.cs" Link="Xaml\SharedResourceDictionary.cs" />
   </ItemGroup>
