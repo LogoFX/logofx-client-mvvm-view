@@ -24,8 +24,7 @@ namespace LogoFX.Client.Mvvm.View.Converters
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var result = EqualsToConverterHelper.Convert(value, parameter);
-            return result is bool res ? res ? Visibility.Visible : Visibility.Collapsed : Visibility.Collapsed;            
-
+            return result is bool res ? res ? Visibility.Visible : Visibility.Collapsed : Visibility.Collapsed;
         }
 
         /// <summary>

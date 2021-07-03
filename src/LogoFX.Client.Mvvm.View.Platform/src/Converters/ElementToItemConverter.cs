@@ -62,10 +62,8 @@ namespace LogoFX.Client.Mvvm.View.Converters
             }
             catch (Exception)
             {
-
                 return Default;
             }
-
             return _items[i%_items.Count];
         }
 

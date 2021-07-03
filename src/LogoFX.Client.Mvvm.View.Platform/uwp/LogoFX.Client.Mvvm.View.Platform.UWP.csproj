@@ -149,6 +149,9 @@
     <Compile Include="..\src\Util\InteractivityHelper.cs">
       <Link>Util\InteractivityHelper.cs</Link>
     </Compile>
+    <Compile Include="..\src\Util\InteractivityTemplate.cs">
+      <Link>Util\InteractivityTemplate.cs</Link>
+    </Compile>
     <Compile Include="..\src\Util\TreeHelper.cs">
       <Link>Util\TreeHelper.cs</Link>
     </Compile>

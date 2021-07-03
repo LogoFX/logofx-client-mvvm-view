@@ -25,10 +25,7 @@ namespace LogoFX.Client.Mvvm.View.Converters
           return -(System.Convert.ToDouble(value));
         }
         catch (Exception)
-        {
-          
-        }
-        
+        {}
       }
       return DependencyProperty.UnsetValue;
     }

@@ -14,9 +14,7 @@ namespace LogoFX.Client.Mvvm.View.Localization
         /// Initializes a new instance of the <see cref="ResourceCollection"/> class.
         /// </summary>
         public ResourceCollection()
-        {
-            
-        }
+        {}
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ResourceCollection"/> class.
@@ -25,8 +23,6 @@ namespace LogoFX.Client.Mvvm.View.Localization
         /// <param name="context">The context.</param>
         public ResourceCollection(SerializationInfo info, StreamingContext context)
             : base(info, context)
-        {
-            
-        }
+        {}
     }
 }

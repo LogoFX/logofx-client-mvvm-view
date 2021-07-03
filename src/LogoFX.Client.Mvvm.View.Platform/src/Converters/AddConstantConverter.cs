@@ -31,7 +31,6 @@ namespace LogoFX.Client.Mvvm.View.Converters
             {
                 return System.Convert.ToInt32(value) + System.Convert.ToInt32(parameter);
             }
-
             catch (Exception)
             {
                 return value;
@@ -59,7 +58,6 @@ namespace LogoFX.Client.Mvvm.View.Converters
             {
                 return System.Convert.ToInt32(value) - System.Convert.ToInt32(parameter);
             }
-
             catch (Exception)
             {
                 return value;

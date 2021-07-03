@@ -101,7 +101,6 @@ namespace LogoFX.Client.Mvvm.View.Localization
 
                 return _cache;
             }
-
             finally
             {
                 _cache = null;

@@ -23,9 +23,7 @@ namespace LogoFX.Client.Mvvm.View.Localization
         #region Constructors
 
         private AssemblyLoaderService()
-        {
-
-        }
+        {}
 
         #endregion
 
@@ -299,7 +297,6 @@ namespace LogoFX.Client.Mvvm.View.Localization
                         System.Diagnostics.Debug.WriteLine(String.Format("Dir {0} is not a culture", localDir.Name));
                     }
                 }
-
                 catch (Exception)
                 {
                     continue;

@@ -14,9 +14,7 @@ namespace LogoFX.Client.Mvvm.View.Localization
         /// Initializes a new instance of the <c>CultureInfoCollection</c> class.
         /// </summary>
         public CultureInfoCollection()
-        {
-
-        }
+        {}
 
         /// <summary>
         /// Initializes a new instance of the <c>CultureInfoCollection</c> class that contains elements copied from the specified collection.
@@ -27,8 +25,6 @@ namespace LogoFX.Client.Mvvm.View.Localization
         /// </exception>
         public CultureInfoCollection(IEnumerable<CultureInfo> items)
             : base(items)
-        {
-            
-        }
+        {}
     }
 }
