@@ -175,7 +175,6 @@ namespace LogoFX.Client.Mvvm.View.Controls
                 rootOffsetX = dimensions.Width - rootOffsetX;
             }
 #endif
-
             double myControlHeight = Parent.ActualHeight;
             double myControlWidth = Parent.ActualWidth;
 
@@ -230,7 +229,32 @@ namespace LogoFX.Client.Mvvm.View.Controls
             // Now that we have positioned the popup we may need to truncate 
             // its size.
             popupMaxHeight = below ? Math.Min(dimensions.Height - popupY, popupMaxHeight) : Math.Min(rootOffsetY, popupMaxHeight);
+            SetPosition(dimensions, 
+#if WINDOWS_UWP || NETFX_CORE
+            mt,
+#endif
+            popupContentWidth, 
+            rootOffsetX, 
+            rootOffsetY, 
+            myControlWidth, 
+            popupMaxHeight, 
+            popupX, 
+            popupY);
+        }
 
+        private void SetPosition(
+            Size dimensions, 
+#if WINDOWS_UWP || NETFX_CORE
+            MatrixTransform mt,
+#endif
+            double popupContentWidth, 
+            double rootOffsetX, 
+            double rootOffsetY, 
+            double myControlWidth, 
+            double popupMaxHeight, 
+            double popupX, 
+            double popupY)
+        {
             Popup.HorizontalOffset = 0;
             Popup.VerticalOffset = 0;
 
