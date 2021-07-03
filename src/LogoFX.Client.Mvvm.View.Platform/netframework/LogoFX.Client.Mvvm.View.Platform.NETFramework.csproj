@@ -121,8 +121,11 @@
     <Compile Include="..\src\Converters\EqualsToVisibilityConverter.cs">
       <Link>Converters\EqualsToVisibilityConverter.cs</Link>
     </Compile>
-    <Compile Include="..\src\Converters\ImageConverters.cs">
-      <Link>Converters\ImageConverters.cs</Link>
+    <Compile Include="..\src\Converters\ObjectToImageConverter.cs">
+      <Link>Converters\ObjectToImageConverter.cs</Link>
+    </Compile>
+     <Compile Include="..\src\Converters\ImageGet.cs">
+      <Link>Converters\ImageGet.cs</Link>
     </Compile>
     <Compile Include="..\src\Converters\IntervalConverter.cs">
       <Link>Converters\IntervalConverter.cs</Link>

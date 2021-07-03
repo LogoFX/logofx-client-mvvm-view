@@ -38,7 +38,8 @@
     <Compile Include="..\src\Converters\EqualsToBooleanConverter.cs" Link="Converters\EqualsToBooleanConverter.cs" />
     <Compile Include="..\src\Converters\EqualsToConverterHelper.cs" Link="Converters\EqualsToConverterHelper.cs" />
     <Compile Include="..\src\Converters\EqualsToVisibilityConverter.cs" Link="Converters\EqualsToVisibilityConverter.cs" />
-    <Compile Include="..\src\Converters\ImageConverters.cs" Link="Converters\ImageConverters.cs" />
+    <Compile Include="..\src\Converters\ObjectToImageConverter.cs" Link="Converters\ObjectToImageConverter.cs" />
+    <Compile Include="..\src\Converters\ImageGet.cs" Link="Converters\ImageGet.cs" />
     <Compile Include="..\src\Converters\IntervalConverter.cs" Link="Converters\IntervalConverter.cs" />
     <Compile Include="..\src\Converters\IsSetToVisibilityConverter.cs" Link="Converters\IsSetToVisibilityConverter.cs" />
     <Compile Include="..\src\Converters\ItemToContextConverter.cs" Link="Converters\ItemToContextConverter.cs" />

@@ -214,7 +214,6 @@ namespace LogoFX.Client.Mvvm.View.Controls
                 InternalPopup.Closed += DropDownPopup_Closed;
                 InternalPopup.FocusChanged += OnDropDownFocusChanged;
                 InternalPopup.UpdateVisualStates += OnDropDownPopupUpdateVisualStates;
-
             }
 
             ClickHandler = GetTemplateChild("ClickHandler") as FrameworkElement;
@@ -230,7 +229,6 @@ namespace LogoFX.Client.Mvvm.View.Controls
                 OpeningDropDown(false);
             }
         }
-
 
         private void OnDropDownFocusChanged(object sender, EventArgs e)
         {
