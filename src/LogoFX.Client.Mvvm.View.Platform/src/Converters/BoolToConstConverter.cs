@@ -32,7 +32,6 @@ namespace LogoFX.Client.Mvvm.View.Converters
               {
                   parameterFalse = elements[1];
               }
-
           }
           if (value is bool)
           {

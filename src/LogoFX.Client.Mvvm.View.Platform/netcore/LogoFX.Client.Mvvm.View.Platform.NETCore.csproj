@@ -29,11 +29,13 @@
     <Compile Include="..\src\Converters\BoolToConstConverter.cs" Link="Converters\BoolToConstConverter.cs" />
     <Compile Include="..\src\Converters\BoolToVisibilityConverter.cs" Link="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="..\src\Converters\CultureDateTimeConverter.cs" Link="Converters\CultureDateTimeConverter.cs" />
+    <Compile Include="..\src\Converters\CultureExtensions.cs" Link="Converters\CultureExtensions.cs" />
     <Compile Include="..\src\Converters\DebugConverter.cs" Link="Converters\DebugConverter.cs" />
     <Compile Include="..\src\Converters\DurationConverter.cs" Link="Converters\DurationConverter.cs" />
     <Compile Include="..\src\Converters\ElementToItemConverter.cs" Link="Converters\ElementToItemConverter.cs" />
     <Compile Include="..\src\Converters\EmptyStringToValueConverter.cs" Link="Converters\EmptyStringToValueConverter.cs" />
     <Compile Include="..\src\Converters\EnumConverter.cs" Link="Converters\EnumConverter.cs" />
+    <Compile Include="..\src\Converters\EnumSourceConverter.cs" Link="Converters\EnumSourceConverter.cs" />
     <Compile Include="..\src\Converters\EnumDescriptionConverter.cs" Link="Converters\EnumDescriptionConverter.cs" />
     <Compile Include="..\src\Converters\EqualsToBooleanConverter.cs" Link="Converters\EqualsToBooleanConverter.cs" />
     <Compile Include="..\src\Converters\EqualsToConverterHelper.cs" Link="Converters\EqualsToConverterHelper.cs" />

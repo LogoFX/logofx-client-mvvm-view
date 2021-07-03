@@ -94,6 +94,7 @@
     <Compile Include="..\src\Converters\CultureDateTimeConverter.cs">
       <Link>Converters\CultureDateTimeConverter.cs</Link>
     </Compile>
+    <Compile Include="..\src\Converters\CultureExtensions.cs" Link="Converters\CultureExtensions.cs" />
     <Compile Include="..\src\Converters\DebugConverter.cs">
       <Link>Converters\DebugConverter.cs</Link>
     </Compile>
@@ -109,6 +110,7 @@
     <Compile Include="..\src\Converters\EnumConverter.cs">
       <Link>Converters\EnumConverter.cs</Link>
     </Compile>
+    <Compile Include="..\src\Converters\EnumSourceConverter.cs" Link="Converters\EnumSourceConverter.cs" />
     <Compile Include="..\src\Converters\EnumDescriptionConverter.cs">
       <Link>Converters\EnumDescriptionConverter.cs</Link>
     </Compile>
