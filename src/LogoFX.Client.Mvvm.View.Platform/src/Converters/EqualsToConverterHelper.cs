@@ -31,7 +31,6 @@ namespace LogoFX.Client.Mvvm.View.Converters
                 {
                     compareTo = Enum.Parse(value.GetType(), (string)parameter, false);
                 }
-
                 catch (Exception ex)
                 {
                     System.Diagnostics.Debug.WriteLine($"EqualsToConverterHelper {ex}");
