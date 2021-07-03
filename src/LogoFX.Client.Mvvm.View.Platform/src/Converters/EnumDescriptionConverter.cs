@@ -32,7 +32,6 @@ namespace LogoFX.Client.Mvvm.View.Converters
                                                           .GetField(value.ToString())
                                                           .GetCustomAttributes(typeof(DescriptionAttribute), false)
                                                           .FirstOrDefault();
-
             if (displayAttribute == null)
             {
                 return value;
@@ -41,7 +40,6 @@ namespace LogoFX.Client.Mvvm.View.Converters
             {
                 return displayAttribute.Description;
             }
-
         }
 
         /// <summary>

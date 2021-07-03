@@ -22,7 +22,7 @@ namespace LogoFX.Client.Mvvm.View.Controls
         /// be inverted and the original instance will remain untouched.</returns>
         public static bool Invert(this Matrix m, out Matrix outputMatrix)
         {
-            double determinant = m.M11 * m.M22 - m.M12 * m.M21;
+            double determinant = (m.M11 * m.M22) - (m.M12 * m.M21);
             if (determinant == 0.0)
             {
                 outputMatrix = m;
@@ -34,12 +34,11 @@ namespace LogoFX.Client.Mvvm.View.Controls
             m.M12 = -1 * matCopy.M12 / determinant;
             m.M21 = -1 * matCopy.M21 / determinant;
             m.M22 = matCopy.M11 / determinant;
-            m.OffsetX = (matCopy.OffsetY * matCopy.M21 - matCopy.OffsetX * matCopy.M22) / determinant;
-            m.OffsetY = (matCopy.OffsetX * matCopy.M12 - matCopy.OffsetY * matCopy.M11) / determinant;
+            m.OffsetX = ((matCopy.OffsetY * matCopy.M21) - (matCopy.OffsetX * matCopy.M22)) / determinant;
+            m.OffsetY = ((matCopy.OffsetX * matCopy.M12) - (matCopy.OffsetY * matCopy.M11)) / determinant;
 
             outputMatrix = m;
             return true;
         }
-
     }
 }

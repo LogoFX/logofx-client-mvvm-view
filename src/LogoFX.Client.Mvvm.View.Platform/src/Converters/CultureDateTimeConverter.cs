@@ -33,7 +33,6 @@ namespace LogoFX.Client.Mvvm.View.Converters
                     return dt.ToString(ifp);
             }
             return value;
-
         }
 
         /// <summary>

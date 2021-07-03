@@ -3,6 +3,8 @@ View-level elements, including converters, controls, trigger actions.
 
 <img src=https://ci.appveyor.com/api/projects/status/github/logofx/logofx-client-mvvm-view>
 
+[![CodeFactor](https://www.codefactor.io/repository/github/logofx/logofx-client-mvvm-view/badge/master)](https://www.codefactor.io/repository/github/logofx/logofx-client-mvvm-view/overview/master)
+
 ## Core
 
 <img src=https://img.shields.io/nuget/dt/LogoFX.Client.Mvvm.View.Core>

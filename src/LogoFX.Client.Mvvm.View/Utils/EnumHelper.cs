@@ -73,6 +73,5 @@ namespace LogoFX.Client.Mvvm.View.Utils
             }
             return values;
         }
-
     }
 }

@@ -27,7 +27,6 @@ namespace LogoFX.Client.Mvvm.View.Localization
             {
                 _assembly = Assembly.Load(assemblyName);
             }
-
             catch (Exception)
             {
                 _assembly = null;

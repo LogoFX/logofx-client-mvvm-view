@@ -29,16 +29,19 @@
     <Compile Include="..\src\Converters\BoolToConstConverter.cs" Link="Converters\BoolToConstConverter.cs" />
     <Compile Include="..\src\Converters\BoolToVisibilityConverter.cs" Link="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="..\src\Converters\CultureDateTimeConverter.cs" Link="Converters\CultureDateTimeConverter.cs" />
+    <Compile Include="..\src\Converters\CultureExtensions.cs" Link="Converters\CultureExtensions.cs" />
     <Compile Include="..\src\Converters\DebugConverter.cs" Link="Converters\DebugConverter.cs" />
     <Compile Include="..\src\Converters\DurationConverter.cs" Link="Converters\DurationConverter.cs" />
     <Compile Include="..\src\Converters\ElementToItemConverter.cs" Link="Converters\ElementToItemConverter.cs" />
     <Compile Include="..\src\Converters\EmptyStringToValueConverter.cs" Link="Converters\EmptyStringToValueConverter.cs" />
     <Compile Include="..\src\Converters\EnumConverter.cs" Link="Converters\EnumConverter.cs" />
+    <Compile Include="..\src\Converters\EnumSourceConverter.cs" Link="Converters\EnumSourceConverter.cs" />
     <Compile Include="..\src\Converters\EnumDescriptionConverter.cs" Link="Converters\EnumDescriptionConverter.cs" />
     <Compile Include="..\src\Converters\EqualsToBooleanConverter.cs" Link="Converters\EqualsToBooleanConverter.cs" />
     <Compile Include="..\src\Converters\EqualsToConverterHelper.cs" Link="Converters\EqualsToConverterHelper.cs" />
     <Compile Include="..\src\Converters\EqualsToVisibilityConverter.cs" Link="Converters\EqualsToVisibilityConverter.cs" />
-    <Compile Include="..\src\Converters\ImageConverters.cs" Link="Converters\ImageConverters.cs" />
+    <Compile Include="..\src\Converters\ObjectToImageConverter.cs" Link="Converters\ObjectToImageConverter.cs" />
+    <Compile Include="..\src\Converters\ImageGet.cs" Link="Converters\ImageGet.cs" />
     <Compile Include="..\src\Converters\IntervalConverter.cs" Link="Converters\IntervalConverter.cs" />
     <Compile Include="..\src\Converters\IsSetToVisibilityConverter.cs" Link="Converters\IsSetToVisibilityConverter.cs" />
     <Compile Include="..\src\Converters\ItemToContextConverter.cs" Link="Converters\ItemToContextConverter.cs" />
@@ -77,6 +80,7 @@
     <Compile Include="..\src\TriggerActions\ValidationErrorAction.cs" Link="TriggerActions\ValidationErrorAction.cs" />
     <Compile Include="..\src\Util\BindingProxy.cs" Link="Util\BindingProxy.cs" />
     <Compile Include="..\src\Util\InteractivityHelper.cs" Link="Util\InteractivityHelper.cs" />
+    <Compile Include="..\src\Util\InteractivityTemplate.cs" Link="Util\InteractivityTemplate.cs" />
     <Compile Include="..\src\Util\TreeHelper.cs" Link="Util\TreeHelper.cs" />
     <Compile Include="..\src\Xaml\SharedResourceDictionary.cs" Link="Xaml\SharedResourceDictionary.cs" />
   </ItemGroup>

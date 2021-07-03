@@ -13,7 +13,6 @@ namespace LogoFX.Client.Mvvm.View.Converters
         /// <inheritdoc />
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-
             if (parameter != null && (value == null || value.ToString() == string.Empty))
                 return parameter;
             return value;

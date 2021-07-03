@@ -127,35 +127,16 @@ namespace LogoFX.Client.Mvvm.View.Controls
                 return;
             }
 
-#if WINDOWS_UWP || NETFX_CORE
-            Content hostContent = Application.Current.Host.Content;
-            double rootWidth = hostContent.ActualWidth;
-            double rootHeight = hostContent.ActualHeight;
-#else
-            UIElement u = Parent;
-            if (Application.Current.Windows.Count > 0)
-            {
-                // TODO: USE THE CURRENT WINDOW INSTEAD! WALK THE TREE!
-                u = Application.Current.Windows[0];
-            }
-            while ((u as Window) == null && u != null)
-            {
-                u = VisualTreeHelper.GetParent(u) as UIElement;
-            }
-            Window w = u as Window;
-            if (w == null)
+            var dimensions = CalculateDimensions();
+            if (dimensions == Size.Empty)
             {
                 return;
             }
 
-            double rootWidth = w.ActualWidth;
-            double rootHeight = w.ActualHeight;
-#endif
-
             double popupContentWidth = PopupChild.ActualWidth;
             double popupContentHeight = PopupChild.ActualHeight;
 
-            if (rootHeight == 0 || rootWidth == 0 || popupContentWidth == 0 || popupContentHeight == 0)
+            if (dimensions.Height == 0 || dimensions.Width == 0 || popupContentWidth == 0 || popupContentHeight == 0)
             {
                 return;
             }
@@ -191,10 +172,9 @@ namespace LogoFX.Client.Mvvm.View.Controls
                 // right plugin edge corresponds to X==0, so we need to adjust
                 // the rootOffsetX to be mirrored too, for the below code to
                 // compute popup position correctly
-                rootOffsetX = rootWidth - rootOffsetX;
+                rootOffsetX = dimensions.Width - rootOffsetX;
             }
 #endif
-
             double myControlHeight = Parent.ActualHeight;
             double myControlWidth = Parent.ActualWidth;
 
@@ -202,28 +182,28 @@ namespace LogoFX.Client.Mvvm.View.Controls
             double popupMaxHeight = MaxDropDownHeight;
             if (double.IsInfinity(popupMaxHeight) || double.IsNaN(popupMaxHeight))
             {
-                popupMaxHeight = (rootHeight - myControlHeight) * 3 / 5;
+                popupMaxHeight = (dimensions.Height - myControlHeight) * 3 / 5;
             }
 
-            popupContentWidth = Math.Min(popupContentWidth, rootWidth);
+            popupContentWidth = Math.Min(popupContentWidth, dimensions.Width);
             popupContentHeight = Math.Min(popupContentHeight, popupMaxHeight);
             popupContentWidth = Math.Max(myControlWidth, popupContentWidth);
 
             // We prefer to align the popup box with the left edge of the 
             // control, if it will fit.
             double popupX = rootOffsetX;
-            if (rootWidth < popupX + popupContentWidth)
+            if (dimensions.Width < popupX + popupContentWidth)
             {
                 // Since it doesn't fit when strictly left aligned, we shift it 
                 // to the left until it does fit.
-                popupX = rootWidth - popupContentWidth;
+                popupX = dimensions.Width - popupContentWidth;
                 popupX = Math.Max(0, popupX);
             }
 
             // We prefer to put the popup below the combobox if it will fit.
             bool below = true;
             double popupY = rootOffsetY + myControlHeight;
-            if (rootHeight < popupY + popupContentHeight)
+            if (dimensions.Height < popupY + popupContentHeight)
             {
                 below = false;
                 // It doesn't fit below the combobox, lets try putting it above 
@@ -233,7 +213,7 @@ namespace LogoFX.Client.Mvvm.View.Controls
                 {
                     // doesn't really fit below either.  Now we just pick top 
                     // or bottom based on wich area is bigger.
-                    if (rootOffsetY < (rootHeight - myControlHeight) / 2)
+                    if (rootOffsetY < (dimensions.Height - myControlHeight) / 2)
                     {
                         below = true;
                         popupY = rootOffsetY + myControlHeight;
@@ -248,14 +228,39 @@ namespace LogoFX.Client.Mvvm.View.Controls
 
             // Now that we have positioned the popup we may need to truncate 
             // its size.
-            popupMaxHeight = below ? Math.Min(rootHeight - popupY, popupMaxHeight) : Math.Min(rootOffsetY, popupMaxHeight);
+            popupMaxHeight = below ? Math.Min(dimensions.Height - popupY, popupMaxHeight) : Math.Min(rootOffsetY, popupMaxHeight);
+            SetPosition(dimensions, 
+#if WINDOWS_UWP || NETFX_CORE
+            mt,
+#endif
+            popupContentWidth, 
+            rootOffsetX, 
+            rootOffsetY, 
+            myControlWidth, 
+            popupMaxHeight, 
+            popupX, 
+            popupY);
+        }
 
+        private void SetPosition(
+            Size dimensions, 
+#if WINDOWS_UWP || NETFX_CORE
+            MatrixTransform mt,
+#endif
+            double popupContentWidth, 
+            double rootOffsetX, 
+            double rootOffsetY, 
+            double myControlWidth, 
+            double popupMaxHeight, 
+            double popupX, 
+            double popupY)
+        {
             Popup.HorizontalOffset = 0;
             Popup.VerticalOffset = 0;
 
 #if WINDOWS_UWP || NETFX_CORE
-            OutsidePopupCanvas.Width = rootWidth;
-            OutsidePopupCanvas.Height = rootHeight;
+            OutsidePopupCanvas.Width = dimensions.Width;
+            OutsidePopupCanvas.Height = dimensions.Height;
 
             // Transform the transparent canvas to the plugin's coordinate 
             // space origin.
@@ -267,7 +272,7 @@ namespace LogoFX.Client.Mvvm.View.Controls
             OutsidePopupCanvas.RenderTransform = mt;
 #endif
             PopupChild.MinWidth = myControlWidth;
-            PopupChild.MaxWidth = rootWidth;
+            PopupChild.MaxWidth = dimensions.Width;
             PopupChild.MinHeight = 0;
             PopupChild.MaxHeight = Math.Max(0, popupMaxHeight);
 
@@ -281,6 +286,35 @@ namespace LogoFX.Client.Mvvm.View.Controls
             Canvas.SetTop(PopupChild, popupY - rootOffsetY);
         }
 
+        private Size CalculateDimensions()
+        {
+#if WINDOWS_UWP || NETFX_CORE
+            Content hostContent = Application.Current.Host.Content;
+            double rootWidth = hostContent.ActualWidth;
+            double rootHeight = hostContent.ActualHeight;
+#else
+            UIElement u = Parent;
+            if (Application.Current.Windows.Count > 0)
+            {
+                // TODO: USE THE CURRENT WINDOW INSTEAD! WALK THE TREE!
+                u = Application.Current.Windows[0];
+            }
+            while ((u as Window) == null && u != null)
+            {
+                u = VisualTreeHelper.GetParent(u) as UIElement;
+            }
+            Window w = u as Window;
+            if (w != null)
+            {
+                return Size.Empty;
+            }
+
+            double rootWidth = w.ActualWidth;
+            double rootHeight = w.ActualHeight;
+#endif
+            return new Size(rootWidth, rootHeight);
+        }
+        
         /// <summary>
         /// Fires the Closed event.
         /// </summary>
@@ -324,7 +358,7 @@ namespace LogoFX.Client.Mvvm.View.Controls
                 // This code is used to enable visual state transitions before 
                 // actually setting the underlying Popup.IsOpen property to false.
                 VisualStateGroup groupPopupClosed = VisualStates.TryGetVisualStateGroup(Parent, VisualStates.GroupPopup);
-                if (null != groupPopupClosed)
+                if (groupPopupClosed != null)
                 {
                     groupPopupClosed.CurrentStateChanged -= OnPopupClosedStateChanged;
                     UsesClosingVisualState = false;
@@ -349,7 +383,7 @@ namespace LogoFX.Client.Mvvm.View.Controls
             }
 
             VisualStateGroup groupPopupClosed = VisualStates.TryGetVisualStateGroup(Parent, VisualStates.GroupPopup);
-            if (null != groupPopupClosed)
+            if (groupPopupClosed != null)
             {
                 groupPopupClosed.CurrentStateChanged += OnPopupClosedStateChanged;
                 UsesClosingVisualState = true;

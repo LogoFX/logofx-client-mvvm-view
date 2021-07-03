@@ -25,9 +25,7 @@ namespace LogoFX.Client.Mvvm.View.Interactivity.Triggers
             DependencyProperty.Register("RespectLoadedEvent", typeof (bool), typeof (XDataTrigger), new PropertyMetadata(default(bool), OnRespectLoadedEventChanged));
 
         private static void OnRespectLoadedEventChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            
-        }
+        {}
 
         #endregion
 
@@ -45,12 +43,10 @@ namespace LogoFX.Client.Mvvm.View.Interactivity.Triggers
             base.OnDetaching();
             if (AssociatedObject is FrameworkElement)
                 ((FrameworkElement)AssociatedObject).Loaded -= XDataTriggerLoaded;
-
         }
 
         void XDataTriggerLoaded(object sender, RoutedEventArgs e)
-        {
-           //EvaluateBindingChange(null);
+        { //EvaluateBindingChange(null); 
         }
     }
 }

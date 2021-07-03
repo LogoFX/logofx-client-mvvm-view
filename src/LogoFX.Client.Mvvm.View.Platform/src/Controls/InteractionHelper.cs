@@ -252,6 +252,7 @@ namespace LogoFX.Client.Mvvm.View.Controls
         {
             UpdateVisualState(true);
         }
+
         #endregion GotFocus
 
         #region LostFocus
@@ -317,6 +318,7 @@ namespace LogoFX.Client.Mvvm.View.Controls
         {
             UpdateVisualState(true);
         }
+
         #endregion MouseEnter
 
         #region MouseLeave
@@ -349,6 +351,7 @@ namespace LogoFX.Client.Mvvm.View.Controls
         {
             UpdateVisualState(true);
         }
+
         #endregion MouseLeave
 
         #region MouseLeftButtonDown
@@ -378,7 +381,7 @@ namespace LogoFX.Client.Mvvm.View.Controls
                 Point lastPosition = LastClickPosition;
                 double dx = position.X - lastPosition.X;
                 double dy = position.Y - lastPosition.Y;
-                double distance = dx * dx + dy * dy;
+                double distance = (dx * dx) + (dy * dy);
 
                 // Check if the values fall under the sequential click temporal
                 // and spatial thresholds
@@ -417,6 +420,7 @@ namespace LogoFX.Client.Mvvm.View.Controls
         {
             UpdateVisualState(true);
         }
+
         #endregion MouseLeftButtonDown
 
         #region MouseLeftButtonUp
@@ -449,6 +453,7 @@ namespace LogoFX.Client.Mvvm.View.Controls
         {
             UpdateVisualState(true);
         }
+
         #endregion MouseLeftButtonUp
 
         #region KeyDown
@@ -468,9 +473,11 @@ namespace LogoFX.Client.Mvvm.View.Controls
 
             return Control.IsEnabled;
         }
+
         #endregion KeyDown
 
         #region KeyUp
+
         /// <summary>
         /// Check if the control's KeyUp event should be handled.
         /// </summary>
@@ -487,6 +494,7 @@ namespace LogoFX.Client.Mvvm.View.Controls
 
             return Control.IsEnabled;
         }
+        
         #endregion KeyUp
     }
 }

@@ -37,16 +37,7 @@ using TriggerCollection = Windows.UI.Interactivity.TriggerCollection;
 namespace System.Windows.Interactivity
 {
     /// <summary>
-    /// <see cref="FrameworkTemplate"/> for InteractivityElements instance
-    /// <remarks>can't use <see cref="FrameworkTemplate"/> directly due to some internal abstract member</remarks>
-    /// </summary>
-    public class InteractivityTemplate : DataTemplate
-    {
-
-    }
-
-    /// <summary>
-    /// Holder for interactivity entries
+    /// Holder for interactivity items
     /// </summary>
     public class InteractivityItems : FrameworkElement
     {

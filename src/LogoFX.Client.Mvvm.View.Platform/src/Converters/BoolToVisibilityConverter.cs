@@ -23,7 +23,6 @@ namespace LogoFX.Client.Mvvm.View.Converters
         /// </returns>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-
             bool bValue = false;
             if (value is bool)
                 bValue = (bool) value;
