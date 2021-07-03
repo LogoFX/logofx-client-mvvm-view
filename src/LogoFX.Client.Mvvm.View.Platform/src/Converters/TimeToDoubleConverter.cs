@@ -54,7 +54,6 @@ namespace LogoFX.Client.Mvvm.View.Converters
         default:
           return new DateTime((long)(double)value);
       }
-      
     }
   }
 }

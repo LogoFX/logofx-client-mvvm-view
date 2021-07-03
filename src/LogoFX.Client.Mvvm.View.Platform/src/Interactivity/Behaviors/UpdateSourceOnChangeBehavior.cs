@@ -75,6 +75,5 @@ namespace LogoFX.Client.Mvvm.View.Interactivity.Behaviors
                 be.UpdateSource();
             }
         }
-
     }
 }
