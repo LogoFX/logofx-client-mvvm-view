@@ -54,11 +54,7 @@ namespace LogoFX.Client.Mvvm.View.Controls
                 this.SetValue(HeaderTemplateProperty, value);
             }
         }
-
-        static HeaderedContentControl()
-        {
-        }
-
+     
         /// <summary>
         /// Initializes a new instance of the <see cref="HeaderedContentControl"/> class.
         /// </summary>
