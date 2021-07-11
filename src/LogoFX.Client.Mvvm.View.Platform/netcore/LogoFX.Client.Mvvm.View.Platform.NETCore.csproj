@@ -1,11 +1,11 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <UseWPF>true</UseWPF>
     <AssemblyName>LogoFX.Client.Mvvm.View.Platform</AssemblyName>
     <RootNamespace>LogoFX.Client.Mvvm.View</RootNamespace>
-    <Version>2.2.0</Version>
+    <Version>2.2.1</Version>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DefineConstants>TRACE;NETCORE</DefineConstants>
@@ -80,7 +80,7 @@
     <Compile Include="..\src\TriggerActions\ValidationErrorAction.cs" Link="TriggerActions\ValidationErrorAction.cs" />
     <Compile Include="..\src\Util\BindingProxy.cs" Link="Util\BindingProxy.cs" />
     <Compile Include="..\src\Util\InteractivityHelper.cs" Link="Util\InteractivityHelper.cs" />
-    <Compile Include="..\src\Util\InteractivityTemplate.cs" Link="Util\InteractivityTemplate.cs" />        
+    <Compile Include="..\src\Util\InteractivityTemplate.cs" Link="Util\InteractivityTemplate.cs" />
     <Compile Include="..\src\Util\TreeHelper.cs" Link="Util\TreeHelper.cs" />
     <Compile Include="..\src\Xaml\SharedResourceDictionary.cs" Link="Xaml\SharedResourceDictionary.cs" />
   </ItemGroup>
@@ -98,7 +98,7 @@
     <Folder Include="TriggerActions\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="LogoFX.Client.Core.Core" Version="2.2.0" />
+    <PackageReference Include="LogoFX.Client.Core.Core" Version="2.2.1-rc1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\LogoFX.Client.Mvvm.View\LogoFX.Client.Mvvm.View.csproj" />
