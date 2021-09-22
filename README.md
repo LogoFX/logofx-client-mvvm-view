@@ -16,3 +16,5 @@ View-level elements, including converters, controls, trigger actions.
 <img src=https://img.shields.io/nuget/dt/LogoFX.Client.Mvvm.View>
 
 [Get package](https://www.nuget.org/packages/LogoFX.Client.Mvvm.View)
+
+This repository is archived. Its functionality has been moved to https://github.com/LogoFX/mvvm
